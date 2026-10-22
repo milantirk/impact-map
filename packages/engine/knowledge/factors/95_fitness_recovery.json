@@ -1,0 +1,177 @@
+{
+  "_note": "Impact Map additions (2026-10): gym, sports gear, return after injury, medical guidance. Same format as the other files.",
+  "factors": [
+    {
+      "id": "gym_membership",
+      "label": "Edzőterem-bérlet",
+      "group": "Egészség",
+      "description": "Havi vagy éves bérlet egy edzőterembe.",
+      "patterns": [
+        "\\b(edzo|kondi|fitnesz|fitness)\\w*\\W+(\\w+\\W+){0,5}berlet",
+        "\\bberlet\\w*\\W+(\\w+\\W+){0,4}(edzo|kondi|fitnesz|fitness|gym)",
+        "\\b(edzoterem|edzotermi|konditerem|konditermi|fitneszterem|fitnessterem)\\w*",
+        "\\bgym (membership|pass|subscription)",
+        "\\bjoin(ing)?\\W+(\\w+\\W+){0,3}gym"
+      ],
+      "alternatives": [
+        "hiking",
+        "cycle_commute"
+      ],
+      "fx": [
+        [
+          "fin.cashflow",
+          -0.15,
+          "B",
+          "short",
+          "dellavigna_2006"
+        ],
+        [
+          "health.physical",
+          0.05,
+          "C",
+          "mid",
+          "who_pa_2020"
+        ],
+        [
+          "econ.local",
+          0.08,
+          "C",
+          "short"
+        ],
+        [
+          "soc.community",
+          0.05,
+          "D",
+          "mid"
+        ]
+      ]
+    },
+    {
+      "id": "sports_gear",
+      "label": "Sportfelszerelés vásárlása",
+      "group": "Fogyasztás",
+      "description": "Sportcipő, sportruha vagy edzőeszköz vásárlása.",
+      "keywords": [
+        "sportcipő",
+        "futócipő",
+        "edzőcipő",
+        "sportruh",
+        "sportfelszerel",
+        "edzőfelszerel",
+        "súlyzó",
+        "jógamatrac",
+        "running shoes",
+        "sneakers",
+        "sports gear",
+        "workout gear"
+      ],
+      "fx": [
+        [
+          "fin.cashflow",
+          -0.08,
+          "C",
+          "short"
+        ],
+        [
+          "econ.consumption",
+          0.05,
+          "C",
+          "short"
+        ],
+        [
+          "env.resources",
+          -0.04,
+          "C",
+          "long"
+        ],
+        [
+          "health.physical",
+          0.03,
+          "D",
+          "mid"
+        ]
+      ]
+    },
+    {
+      "id": "injury_return",
+      "label": "Edzés sérülés után",
+      "group": "Egészség",
+      "description": "A mozgás újrakezdése sérülés után. Nő az újrasérülés kockázata.",
+      "patterns": [
+        "\\bserul\\w*",
+        "\\bsakatt\\w*",
+        "\\bhuzod\\w*",
+        "\\bficam\\w*",
+        "\\binjur",
+        "\\bsprain"
+      ],
+      "fx": [
+        [
+          "health.safety",
+          -0.3,
+          "B",
+          "short",
+          "ardern_2016"
+        ],
+        [
+          "health.physical",
+          -0.1,
+          "C",
+          "short",
+          "ardern_2016"
+        ],
+        [
+          "health.mental",
+          -0.05,
+          "D",
+          "short"
+        ]
+      ]
+    },
+    {
+      "id": "medical_guidance",
+      "label": "Orvosi vagy gyógytornász kontroll",
+      "group": "Egészség",
+      "description": "Szakember mondja meg, milyen terhelés biztonságos.",
+      "patterns": [
+        "\\bgyogytorn\\w*",
+        "\\bsportorvos\\w*",
+        "\\bfizioterap\\w*",
+        "\\bphysio",
+        "\\bphysical therap",
+        "\\bsports? doctor",
+        "\\borvos\\w*\\W+(\\w+\\W+){0,5}(edz|terhel|sport|mozg|futa|futn)",
+        "\\b(edz|terhel|sport|mozg)\\w*\\W+(\\w+\\W+){0,5}orvos",
+        "\\bdoctor\\W+(\\w+\\W+){0,4}(train|exercis|workout|running|sport)"
+      ],
+      "fx": [
+        [
+          "health.safety",
+          0.3,
+          "B",
+          "short",
+          "lauersen_2014"
+        ],
+        [
+          "health.physical",
+          0.1,
+          "C",
+          "mid",
+          "ardern_2016"
+        ],
+        [
+          "fin.cashflow",
+          -0.05,
+          "C",
+          "short"
+        ],
+        [
+          "life.time",
+          -0.03,
+          "D",
+          "short"
+        ]
+      ]
+    }
+  ]
+}

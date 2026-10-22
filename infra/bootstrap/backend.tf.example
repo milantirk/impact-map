@@ -1,0 +1,8 @@
+# Optional: move the bootstrap state into the storage account it created.
+# 1. cp backend.tf.example backend.tf
+# 2. terraform output -json backend_hcl | jq -r .bootstrap > backend.hcl
+#    (or copy backend.hcl.example and fill it in)
+# 3. terraform init -migrate-state -backend-config=backend.hcl
+terraform {
+  backend "azurerm" {}
+}

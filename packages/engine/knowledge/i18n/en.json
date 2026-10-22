@@ -1,0 +1,2861 @@
+{
+  "_note": "English overlay. Keys are knowledge ids. Missing entries fall back to Hungarian.",
+  "areas": {
+    "econ": {
+      "label": "Economic",
+      "description": "Impact on the wider economy (markets, labour, demand)."
+    },
+    "fin": {
+      "label": "Financial",
+      "description": "The decision maker's own financial situation."
+    },
+    "health": {
+      "label": "Health",
+      "description": "Personal and public health, and the healthcare system."
+    },
+    "soc": {
+      "label": "Social",
+      "description": "Relationships, community and the structure of society."
+    },
+    "legal": {
+      "label": "Legal",
+      "description": "Legal risk, obligations and the justice system."
+    },
+    "env": {
+      "label": "Environmental",
+      "description": "Climate, air, natural resources and wildlife."
+    },
+    "life": {
+      "label": "Quality of life",
+      "description": "Time, knowledge and self-determination."
+    },
+    "pub": {
+      "label": "Public finances",
+      "description": "Government revenue and spending, shared infrastructure."
+    }
+  },
+  "subareas": {
+    "econ.employment": "Employment",
+    "econ.local": "Local economy",
+    "econ.productivity": "Productivity",
+    "econ.consumption": "Demand and consumption",
+    "fin.income": "Income",
+    "fin.cashflow": "Monthly breathing room",
+    "fin.wealth": "Wealth and savings",
+    "fin.security": "Financial security",
+    "health.physical": "Physical health",
+    "health.mental": "Mental health",
+    "health.longevity": "Life expectancy",
+    "health.public": "Public health",
+    "health.safety": "Safety from accidents",
+    "health.system": "Relief for the health system",
+    "soc.relationships": "Relationships and family",
+    "soc.community": "Community ties",
+    "soc.mobility": "Social mobility",
+    "soc.equality": "Equality",
+    "soc.civic": "Civic participation and trust",
+    "legal.risk": "Low legal risk",
+    "legal.freedom": "Freedom from obligations",
+    "legal.system": "Relief for the justice system",
+    "legal.privacy": "Privacy and data security",
+    "env.climate": "Climate (CO₂)",
+    "env.air": "Air quality",
+    "env.resources": "Resource conservation",
+    "env.biodiversity": "Biodiversity",
+    "env.waste": "Waste reduction",
+    "env.water": "Water supply and quality",
+    "env.animals": "Animal welfare",
+    "life.time": "Free time",
+    "life.skills": "Knowledge and skills",
+    "life.autonomy": "Autonomy",
+    "pub.tax": "Tax revenue",
+    "pub.welfare": "Relief for welfare spending",
+    "pub.infrastructure": "Relief for infrastructure"
+  },
+  "factors": {
+    "quit_smoking": {
+      "label": "Quitting smoking",
+      "description": "Giving up daily smoking completely.",
+      "keywords": [
+        "give up smoking",
+        "giving up smoking",
+        "give up cigarettes",
+        "giving up cigarettes",
+        "quit cigarettes",
+        "quit tobacco"
+      ]
+    },
+    "reduce_smoking": {
+      "label": "Smoking less",
+      "description": "Fewer cigarettes, but not quitting completely.",
+      "keywords": [
+        "smoke less",
+        "smoking less",
+        "fewer cigarettes",
+        "cut back on smoking",
+        "cutting back on smoking",
+        "reduce my smoking"
+      ]
+    },
+    "vape_switch": {
+      "label": "Switching to e-cigarettes",
+      "description": "Switching from regular cigarettes to e-cigarettes or heated tobacco.",
+      "keywords": [
+        "vaping",
+        "heated tobacco",
+        "electronic cigarette",
+        "iqos"
+      ]
+    },
+    "buy_car": {
+      "label": "Buying a car (combustion)",
+      "description": "Buying your own petrol or diesel car and driving it every day.",
+      "keywords": [
+        "buy a new car",
+        "buying a new car",
+        "petrol car",
+        "diesel car",
+        "drive to work",
+        "commute by car"
+      ]
+    },
+    "buy_ev": {
+      "label": "Buying an electric car",
+      "description": "Buying your own electric car and driving it every day.",
+      "keywords": [
+        "buy an ev",
+        "buying an ev",
+        "tesla",
+        "electric suv",
+        "zero-emission car"
+      ]
+    },
+    "cycle_commute": {
+      "label": "Cycling for transport",
+      "description": "Getting around by bicycle every day, for example to work.",
+      "keywords": [
+        "bicycle",
+        "biking",
+        "bikes"
+      ]
+    },
+    "public_transport": {
+      "label": "Public transport",
+      "description": "Getting around every day by bus, tram, metro or train.",
+      "keywords": [
+        "by bus",
+        "by tram",
+        "by train",
+        "take the bus",
+        "public transit",
+        "bus pass"
+      ]
+    },
+    "remote_work": {
+      "label": "Remote work",
+      "description": "Working from home full time.",
+      "keywords": [
+        "work remotely",
+        "working remotely",
+        "telework",
+        "remote job",
+        "fully remote"
+      ]
+    },
+    "hybrid_work": {
+      "label": "Hybrid work",
+      "description": "A few days a week from home, the rest in the office.",
+      "keywords": [
+        "days from home",
+        "days in the office",
+        "days at the office",
+        "partly from home",
+        "partly remote"
+      ]
+    },
+    "office_work": {
+      "label": "Office work with commuting",
+      "description": "Commuting to the workplace every day.",
+      "keywords": [
+        "go to the office",
+        "going to the office",
+        "back to the office",
+        "office every day",
+        "commute to the office"
+      ]
+    },
+    "move_rural": {
+      "label": "Moving to the countryside",
+      "description": "Moving from a big city to a small town or a village.",
+      "keywords": [
+        "moving to the countryside",
+        "move to the country",
+        "move to a small town",
+        "moving to a small town",
+        "move to a village",
+        "moving to a village"
+      ]
+    },
+    "move_city": {
+      "label": "Moving to a big city",
+      "description": "Moving from a smaller place to a big city.",
+      "keywords": [
+        "moving to the city",
+        "move to a big city",
+        "moving to a big city",
+        "move to the capital",
+        "moving to the capital",
+        "move to budapest"
+      ]
+    },
+    "move_abroad": {
+      "label": "Working abroad",
+      "description": "Moving to another country for work.",
+      "keywords": [
+        "moving abroad",
+        "work abroad",
+        "working abroad",
+        "job abroad",
+        "emigrat",
+        "relocate abroad"
+      ]
+    },
+    "university_degree": {
+      "label": "University degree",
+      "description": "Earning a higher education degree.",
+      "keywords": [
+        "college",
+        "higher education",
+        "undergraduate",
+        "grad school",
+        "graduate school",
+        "doctorate"
+      ]
+    },
+    "vocational_training": {
+      "label": "Vocational training",
+      "description": "Learning a trade through vocational training.",
+      "keywords": [
+        "apprentice",
+        "learn a trade",
+        "learning a trade",
+        "trade school",
+        "technical school",
+        "skilled trade"
+      ]
+    },
+    "online_learning": {
+      "label": "Online course",
+      "description": "Short online courses and self-study.",
+      "keywords": [
+        "online class",
+        "online training",
+        "e-learning",
+        "coursera",
+        "udemy",
+        "self-study"
+      ]
+    },
+    "consumer_loan": {
+      "label": "Personal or consumer loan",
+      "description": "Taking out a loan without collateral.",
+      "keywords": [
+        "take out a loan",
+        "taking out a loan",
+        "bank loan",
+        "payday loan",
+        "credit card",
+        "borrow money"
+      ]
+    },
+    "mortgage": {
+      "label": "Mortgage, buying a home",
+      "description": "Buying your own flat or house with a mortgage.",
+      "keywords": [
+        "buy a house",
+        "buying a house",
+        "buy a flat",
+        "buy an apartment",
+        "buy a home",
+        "home loan"
+      ]
+    },
+    "rent_home": {
+      "label": "Renting a home",
+      "description": "Renting a flat instead of buying one.",
+      "keywords": [
+        "rent a place",
+        "renting a place",
+        "rented flat",
+        "rented apartment",
+        "rental apartment",
+        "keep renting"
+      ]
+    },
+    "save_invest": {
+      "label": "Regular saving and investing",
+      "description": "Money put aside and invested every month.",
+      "keywords": [
+        "save money",
+        "save up",
+        "put money aside",
+        "put aside",
+        "save more",
+        "save every month"
+      ]
+    },
+    "start_business": {
+      "label": "Starting a business",
+      "description": "Founding your own company, with or without employees.",
+      "keywords": [
+        "starting a business",
+        "own business",
+        "start a company",
+        "starting a company",
+        "found a company",
+        "start-up"
+      ]
+    },
+    "freelance": {
+      "label": "Freelancing",
+      "description": "Working on your own account, taking on client projects.",
+      "keywords": [
+        "self-employed",
+        "self employed",
+        "sole trader",
+        "sole proprietor",
+        "my own boss"
+      ]
+    },
+    "job_change": {
+      "label": "Changing jobs for higher pay",
+      "description": "A new job with better pay.",
+      "keywords": [
+        "change jobs",
+        "changing jobs",
+        "switch jobs",
+        "job change",
+        "paying job",
+        "higher salary"
+      ]
+    },
+    "regular_exercise": {
+      "label": "Regular exercise",
+      "description": "At least 150 minutes of moderate exercise a week.",
+      "keywords": [
+        "workout",
+        "working out",
+        "jogging",
+        "for a run",
+        "start running",
+        "swimming"
+      ]
+    },
+    "plant_based": {
+      "label": "Plant-based diet",
+      "description": "A vegan or vegetarian diet.",
+      "keywords": [
+        "stop eating meat",
+        "give up meat",
+        "giving up meat",
+        "quit meat",
+        "meat-free diet",
+        "no longer eat meat"
+      ]
+    },
+    "reduce_meat": {
+      "label": "Eating less meat",
+      "description": "Less meat, but not giving it up completely.",
+      "keywords": [
+        "less meat",
+        "cut down on meat",
+        "cut back on meat",
+        "meat-free day",
+        "meatless day",
+        "reduce my meat"
+      ]
+    },
+    "quit_alcohol": {
+      "label": "Quitting alcohol",
+      "description": "Not drinking alcohol at all.",
+      "keywords": [
+        "stop drinking alcohol",
+        "give up alcohol",
+        "giving up alcohol",
+        "give up drinking",
+        "giving up drinking",
+        "teetotal"
+      ]
+    },
+    "volunteering": {
+      "label": "Volunteering",
+      "description": "Doing volunteer work regularly.",
+      "keywords": [
+        "charity work",
+        "community service",
+        "food bank",
+        "soup kitchen"
+      ]
+    },
+    "have_child": {
+      "label": "Having a child",
+      "description": "Deciding to have a child.",
+      "keywords": [
+        "having a baby",
+        "having a child",
+        "start a family",
+        "starting a family",
+        "get pregnant",
+        "getting pregnant"
+      ]
+    },
+    "solar_panels": {
+      "label": "Installing solar panels",
+      "description": "A solar power system for the home.",
+      "keywords": [
+        "photovoltaic",
+        "pv panel",
+        "pv system",
+        "pv array"
+      ]
+    },
+    "water_filter": {
+      "label": "Using a water filter",
+      "description": "Filtering tap water (jug, tap-mounted or under-sink filter) instead of buying bottled water.",
+      "keywords": [
+        "water filter",
+        "brita",
+        "filter jug",
+        "filter pitcher",
+        "reverse osmosis",
+        "water purifier"
+      ]
+    },
+    "bottled_water": {
+      "label": "Drinking bottled water",
+      "description": "Drinking bottled water regularly.",
+      "keywords": [
+        "bottled water",
+        "mineral water",
+        "bottles of water",
+        "spring water"
+      ]
+    },
+    "tap_water": {
+      "label": "Drinking tap water",
+      "description": "Drinking unfiltered tap water instead of bottled water.",
+      "keywords": [
+        "tap water",
+        "water from the tap",
+        "drink from the tap",
+        "drinking from the tap"
+      ]
+    },
+    "heat_pump": {
+      "label": "Installing a heat pump",
+      "description": "Heating and cooling with a heat pump.",
+      "keywords": [
+        "heat pump",
+        "air source",
+        "ground source",
+        "air-to-water",
+        "geothermal"
+      ]
+    },
+    "insulation": {
+      "label": "Insulation and new windows",
+      "description": "Insulating the walls and roof, replacing the windows.",
+      "keywords": [
+        "insulat",
+        "new windows",
+        "replace the windows",
+        "double glazing",
+        "triple glazing"
+      ]
+    },
+    "gas_boiler": {
+      "label": "New gas boiler",
+      "description": "Replacing old gas heating with a newer gas boiler.",
+      "keywords": [
+        "gas boiler",
+        "condensing boiler",
+        "gas heating",
+        "gas furnace",
+        "gas heater"
+      ]
+    },
+    "wood_stove": {
+      "label": "Wood heating, fireplace",
+      "description": "Heating with wood or a multi-fuel stove.",
+      "keywords": [
+        "wood stove",
+        "wood-burning",
+        "wood burning",
+        "fireplace",
+        "log burner",
+        "firewood"
+      ]
+    },
+    "air_conditioner": {
+      "label": "Installing air conditioning",
+      "description": "An air conditioner for cooling.",
+      "keywords": [
+        "air-condition",
+        "aircon",
+        "ac unit",
+        "cooling unit"
+      ]
+    },
+    "led_lighting": {
+      "label": "LED lighting",
+      "description": "Replacing light bulbs with LEDs.",
+      "keywords": [
+        "leds",
+        "light bulbs",
+        "lightbulbs",
+        "low-energy bulb"
+      ]
+    },
+    "smart_thermostat": {
+      "label": "Smart thermostat, lower heating",
+      "description": "Controlling the heating and keeping it 1–2 degrees lower.",
+      "keywords": [
+        "thermostat",
+        "turn down the heat",
+        "turn the heating down",
+        "turn the heat down",
+        "lower the heating",
+        "lower the temperature"
+      ]
+    },
+    "energy_saving": {
+      "label": "Saving energy at home",
+      "description": "Using electricity and energy mindfully at home.",
+      "keywords": [
+        "save energy",
+        "saving energy",
+        "save electricity",
+        "less electricity",
+        "turn off the lights",
+        "switch off the lights"
+      ]
+    },
+    "rainwater": {
+      "label": "Collecting rainwater",
+      "description": "Collecting rainwater for watering the garden.",
+      "keywords": [
+        "rainwater",
+        "rain water",
+        "rain barrel",
+        "water butt",
+        "cistern"
+      ]
+    },
+    "water_saving": {
+      "label": "Saving water",
+      "description": "Shorter showers and water-saving devices.",
+      "keywords": [
+        "save water",
+        "saving water",
+        "shorter shower",
+        "use less water",
+        "water-saving",
+        "water saving"
+      ]
+    },
+    "dishwasher": {
+      "label": "Buying a dishwasher",
+      "description": "Using a machine instead of washing up by hand.",
+      "keywords": [
+        "dishwasher",
+        "dish washer"
+      ]
+    },
+    "dryer": {
+      "label": "Buying a tumble dryer",
+      "description": "Drying clothes with a machine.",
+      "keywords": [
+        "tumble dry",
+        "clothes dryer",
+        "washer-dryer",
+        "washer dryer",
+        "drying machine"
+      ]
+    },
+    "renovation": {
+      "label": "Home renovation",
+      "description": "Renovating a flat or house (bathroom, kitchen, flooring).",
+      "keywords": [
+        "renovat",
+        "remodel",
+        "redecorat",
+        "new kitchen",
+        "new bathroom",
+        "redo the bathroom"
+      ]
+    },
+    "build_house": {
+      "label": "Building a house",
+      "description": "Building your own house.",
+      "keywords": [
+        "build a house",
+        "building a house",
+        "build a home",
+        "build our house",
+        "build our own house",
+        "build my own house"
+      ]
+    },
+    "holiday_home": {
+      "label": "Buying a holiday home",
+      "description": "A second property for holidays.",
+      "keywords": [
+        "holiday home",
+        "holiday house",
+        "vacation home",
+        "summer house",
+        "weekend house",
+        "second home"
+      ]
+    },
+    "move_near_work": {
+      "label": "Moving closer to work",
+      "description": "A shorter commute by moving house.",
+      "keywords": [
+        "closer to work",
+        "closer to my work",
+        "closer to the office",
+        "closer to my office",
+        "near my work",
+        "near my office"
+      ]
+    },
+    "move_in_parents": {
+      "label": "Moving back in with parents",
+      "description": "Sharing a household with your parents.",
+      "keywords": [
+        "back in with my parents",
+        "move in with my parents",
+        "moving in with my parents",
+        "live with my parents",
+        "living with my parents",
+        "back to my parents"
+      ]
+    },
+    "shared_flat": {
+      "label": "Flatmates, shared flat",
+      "description": "Sharing a flat with a flatmate.",
+      "keywords": [
+        "flatmate",
+        "roommate",
+        "housemate",
+        "shared flat",
+        "flat share",
+        "flatshare"
+      ]
+    },
+    "downsizing": {
+      "label": "Moving to a smaller home",
+      "description": "A smaller, cheaper home.",
+      "keywords": [
+        "downsiz",
+        "smaller flat",
+        "smaller apartment",
+        "smaller house",
+        "smaller home",
+        "to a smaller place"
+      ]
+    },
+    "bigger_home": {
+      "label": "Moving to a bigger home",
+      "description": "A bigger home.",
+      "keywords": [
+        "bigger flat",
+        "bigger apartment",
+        "bigger house",
+        "bigger home",
+        "bigger place",
+        "house with a garden"
+      ]
+    },
+    "smoke_alarm": {
+      "label": "Smoke and carbon monoxide alarms",
+      "description": "Installing detectors at home.",
+      "keywords": [
+        "smoke alarm",
+        "smoke detector",
+        "carbon monoxide",
+        "co detector",
+        "co alarm",
+        "fire alarm"
+      ]
+    },
+    "home_insurance": {
+      "label": "Home insurance",
+      "description": "Taking out home or contents insurance.",
+      "keywords": [
+        "home insurance",
+        "house insurance",
+        "contents insurance",
+        "property insurance",
+        "buildings insurance",
+        "renters insurance"
+      ]
+    },
+    "smart_home": {
+      "label": "Smart home devices",
+      "description": "Voice assistant, smart camera, smart lock.",
+      "keywords": [
+        "smart home",
+        "smart speaker",
+        "smart lock",
+        "alexa",
+        "google home",
+        "voice assistant"
+      ]
+    },
+    "home_garden": {
+      "label": "Gardening, vegetable patch",
+      "description": "Your own garden, growing vegetables.",
+      "keywords": [
+        "gardening",
+        "vegetable garden",
+        "vegetable patch",
+        "grow vegetables",
+        "grow my own",
+        "grow our own"
+      ]
+    },
+    "composting": {
+      "label": "Composting",
+      "description": "Composting kitchen and garden waste.",
+      "keywords": [
+        "compost",
+        "wormery",
+        "vermicompost"
+      ]
+    },
+    "recycling": {
+      "label": "Recycling",
+      "description": "Sorting waste and returning bottles for the deposit.",
+      "keywords": [
+        "recycl",
+        "sort my waste",
+        "sort the waste",
+        "waste separation",
+        "bottle deposit",
+        "deposit return"
+      ]
+    },
+    "zero_waste": {
+      "label": "Zero-waste living",
+      "description": "Packaging-free shopping, as little waste as possible.",
+      "keywords": [
+        "zero waste",
+        "zero-waste",
+        "package-free",
+        "plastic-free",
+        "less plastic",
+        "less waste"
+      ]
+    },
+    "reusable_items": {
+      "label": "Reusable bag, cup and bottle",
+      "description": "Replacing single-use plastic.",
+      "keywords": [
+        "reusable",
+        "refillable",
+        "tote bag",
+        "canvas bag",
+        "keepcup",
+        "my own cup"
+      ]
+    },
+    "second_hand": {
+      "label": "Buying second-hand",
+      "description": "Buying clothes, furniture and electronics used.",
+      "keywords": [
+        "second-hand",
+        "second hand",
+        "secondhand",
+        "thrift store",
+        "charity shop",
+        "refurbished"
+      ]
+    },
+    "fast_fashion": {
+      "label": "Lots of new clothes (fast fashion)",
+      "description": "Buying cheap clothes often.",
+      "keywords": [
+        "fast fashion",
+        "new clothes",
+        "buy clothes",
+        "buying clothes",
+        "clothes shopping",
+        "shein"
+      ]
+    },
+    "repair_items": {
+      "label": "Repairing instead of replacing",
+      "description": "Fixing devices and clothes instead of buying new ones.",
+      "keywords": [
+        "repair",
+        "mend",
+        "get it fixed",
+        "fix my old",
+        "keep my old",
+        "keep using my old"
+      ]
+    },
+    "new_phone": {
+      "label": "Buying a new smartphone",
+      "description": "Replacing your phone with a new one.",
+      "keywords": [
+        "new phone",
+        "new smartphone",
+        "iphone",
+        "upgrade my phone",
+        "replace my phone",
+        "new mobile"
+      ]
+    },
+    "new_electronics": {
+      "label": "New electronics (TV, laptop, console)",
+      "description": "Buying an entertainment or computer device.",
+      "keywords": [
+        "laptop",
+        "new computer",
+        "television",
+        "games console",
+        "playstation",
+        "smartwatch"
+      ]
+    },
+    "buy_local": {
+      "label": "Buying from local producers and shops",
+      "description": "The money stays in the local economy.",
+      "keywords": [
+        "buy local",
+        "support local",
+        "local farmer",
+        "local produce",
+        "local shop",
+        "farmers market"
+      ]
+    },
+    "organic_food": {
+      "label": "Organic food",
+      "description": "Food from organic farming.",
+      "keywords": [
+        "organic food",
+        "organic produce",
+        "organic vegetables",
+        "organic product",
+        "buy organic",
+        "go organic"
+      ]
+    },
+    "online_shopping": {
+      "label": "Online shopping",
+      "description": "Ordering from web shops instead of going to a shop.",
+      "keywords": [
+        "online shopping",
+        "shop online",
+        "shopping online",
+        "order online",
+        "buy online",
+        "amazon"
+      ]
+    },
+    "food_delivery": {
+      "label": "Food delivery",
+      "description": "Having meals delivered regularly.",
+      "keywords": [
+        "food delivery",
+        "order food",
+        "ordering food",
+        "takeaway",
+        "takeout",
+        "deliveroo"
+      ]
+    },
+    "minimalism": {
+      "label": "Minimalism, buying less",
+      "description": "Conscious, restrained consumption.",
+      "keywords": [
+        "minimalis",
+        "declutter",
+        "buy less",
+        "buying less",
+        "consume less",
+        "fewer things"
+      ]
+    },
+    "subscription_cut": {
+      "label": "Cancelling subscriptions",
+      "description": "Ending subscriptions you do not need.",
+      "keywords": [
+        "cancel my subscription",
+        "cancel subscription",
+        "my subscriptions",
+        "unsubscrib",
+        "cancel netflix",
+        "cancel my netflix"
+      ]
+    },
+    "streaming_subscription": {
+      "label": "Streaming subscription",
+      "description": "Subscribing to a film, series or music service.",
+      "keywords": [
+        "netflix",
+        "spotify",
+        "streaming service",
+        "streaming subscription",
+        "disney+",
+        "hbo max"
+      ]
+    },
+    "impulse_shopping": {
+      "label": "Impulse buying, sales sprees",
+      "description": "Unplanned shopping driven by sales.",
+      "keywords": [
+        "impulse buy",
+        "impulse purchas",
+        "black friday",
+        "shopping spree",
+        "splurge",
+        "retail therapy"
+      ]
+    },
+    "bnpl": {
+      "label": "Buy now, pay later",
+      "description": "Buying in instalments or on a credit card.",
+      "keywords": [
+        "pay later",
+        "instalment",
+        "installment",
+        "klarna"
+      ]
+    },
+    "luxury_purchase": {
+      "label": "Buying a luxury item",
+      "description": "An expensive designer product.",
+      "keywords": [
+        "luxury item",
+        "luxury goods",
+        "luxury brand",
+        "luxury watch",
+        "designer bag",
+        "designer clothes"
+      ]
+    },
+    "gift_giving": {
+      "label": "Giving gifts",
+      "description": "Buying presents for other people.",
+      "keywords": [
+        "gift",
+        "present for",
+        "presents for",
+        "birthday present",
+        "christmas present"
+      ]
+    },
+    "selling_online": {
+      "label": "Selling used belongings",
+      "description": "Selling things you do not need online or at a flea market.",
+      "keywords": [
+        "sell my old",
+        "sell my clothes",
+        "sell my stuff",
+        "marketplace",
+        "flea market",
+        "garage sale"
+      ]
+    },
+    "cook_home": {
+      "label": "Cooking at home",
+      "description": "Cooking at home regularly, meal prepping.",
+      "keywords": [
+        "cook at home",
+        "cooking at home",
+        "cook more",
+        "home-cooked",
+        "meal prep",
+        "learn to cook"
+      ]
+    },
+    "fast_food": {
+      "label": "Eating fast food",
+      "description": "Eating at fast-food restaurants regularly.",
+      "keywords": [
+        "fast food",
+        "fast-food",
+        "mcdonald",
+        "burger king",
+        "junk food",
+        "drive-thru"
+      ]
+    },
+    "eat_out": {
+      "label": "Eating out",
+      "description": "Eating at restaurants regularly.",
+      "keywords": [
+        "eat out",
+        "eating out",
+        "dine out",
+        "dining out",
+        "at restaurants",
+        "to restaurants"
+      ]
+    },
+    "reduce_sugar": {
+      "label": "Less sugar, soft drinks and sweets",
+      "description": "Cutting down on added sugar.",
+      "keywords": [
+        "less sugar",
+        "cut down on sugar",
+        "cut out sugar",
+        "sugar-free",
+        "fewer sweets",
+        "fewer soft drinks"
+      ]
+    },
+    "soft_drinks": {
+      "label": "Drinking sugary soft drinks regularly",
+      "description": "Cola, energy drinks or cordial every day.",
+      "keywords": [
+        "soft drink",
+        "sugary drink",
+        "energy drink",
+        "fizzy drink",
+        "drink cola",
+        "drink coke"
+      ]
+    },
+    "reduce_salt": {
+      "label": "Less salt",
+      "description": "Cutting down on salt.",
+      "keywords": [
+        "less salt",
+        "low-salt",
+        "low salt",
+        "cut down on salt",
+        "reduce salt"
+      ]
+    },
+    "less_processed_meat": {
+      "label": "Less processed meat",
+      "description": "Fewer cold cuts, sausages and frankfurters, and less bacon.",
+      "keywords": [
+        "processed meat",
+        "less bacon",
+        "less sausage",
+        "fewer sausages",
+        "less ham",
+        "cold cuts"
+      ]
+    },
+    "more_vegetables": {
+      "label": "More fruit and vegetables",
+      "description": "At least 400 g of fruit and vegetables a day.",
+      "keywords": [
+        "more veg",
+        "more fruit",
+        "eat health",
+        "healthy diet",
+        "balanced diet",
+        "five a day"
+      ]
+    },
+    "coffee": {
+      "label": "Drinking coffee regularly",
+      "description": "2–4 cups of coffee a day.",
+      "keywords": [
+        "drink coffee",
+        "drinking coffee",
+        "cup of coffee",
+        "cups of coffee",
+        "coffee every",
+        "espresso"
+      ]
+    },
+    "coffee_capsules": {
+      "label": "Capsule coffee machine",
+      "description": "Using single-serve coffee capsules.",
+      "keywords": [
+        "coffee capsule",
+        "capsule machine",
+        "capsule coffee",
+        "coffee pod",
+        "nespresso",
+        "dolce gusto"
+      ]
+    },
+    "intermittent_fasting": {
+      "label": "Intermittent fasting",
+      "description": "For example a 16/8 eating window.",
+      "keywords": [
+        "intermittent",
+        "16/8",
+        "fasting",
+        "time-restricted eating",
+        "eating window"
+      ]
+    },
+    "weight_loss": {
+      "label": "Weight loss",
+      "description": "Reducing excess weight with diet or exercise.",
+      "keywords": [
+        "slim down",
+        "on a diet",
+        "dieting",
+        "calorie deficit",
+        "lose some weight",
+        "lose a few",
+        "gained weight",
+        "put on weight"
+      ]
+    },
+    "supplements": {
+      "label": "Vitamins and supplements",
+      "description": "Taking vitamins or food supplements regularly.",
+      "keywords": [
+        "vitamin",
+        "supplements",
+        "omega-3",
+        "fish oil",
+        "magnesium",
+        "protein powder"
+      ]
+    },
+    "eat_fish": {
+      "label": "Eating more fish",
+      "description": "Several fish meals a week.",
+      "keywords": [
+        "eat more fish",
+        "eat fish",
+        "eating fish",
+        "salmon",
+        "seafood",
+        "sushi"
+      ]
+    },
+    "food_waste_reduce": {
+      "label": "Less food waste",
+      "description": "Planned shopping and using up leftovers.",
+      "keywords": [
+        "food waste",
+        "waste less food",
+        "throw away less food",
+        "throw less food",
+        "leftovers",
+        "too good to go"
+      ]
+    },
+    "sleep_more": {
+      "label": "Longer and more regular sleep",
+      "description": "7–9 hours of sleep a day and a regular bedtime.",
+      "keywords": [
+        "sleep more",
+        "more sleep",
+        "enough sleep",
+        "better sleep",
+        "go to bed early",
+        "hours of sleep"
+      ]
+    },
+    "meditation": {
+      "label": "Meditation, yoga, mindfulness",
+      "description": "Regular meditation or breathing exercises.",
+      "keywords": [
+        "meditat",
+        "mindfulness",
+        "yoga",
+        "breathing exercise",
+        "breathwork"
+      ]
+    },
+    "therapy": {
+      "label": "Psychotherapy",
+      "description": "Regular therapy with a professional.",
+      "keywords": [
+        "go to therapy",
+        "start therapy",
+        "in therapy",
+        "see a therapist",
+        "psychotherap",
+        "psychologist"
+      ]
+    },
+    "psych_medication": {
+      "label": "Psychiatric medication",
+      "description": "Antidepressants or anti-anxiety medication on a doctor's advice.",
+      "keywords": [
+        "antidepressant",
+        "anxiety medication",
+        "anti-anxiety",
+        "psychiatric medication",
+        "ssri"
+      ]
+    },
+    "vaccination": {
+      "label": "Vaccination",
+      "description": "For example a flu, COVID or other recommended vaccine.",
+      "keywords": [
+        "vaccin",
+        "flu shot",
+        "flu jab",
+        "booster shot",
+        "immunis",
+        "immuniz"
+      ]
+    },
+    "health_checkup": {
+      "label": "Screening, medical check-up",
+      "description": "Targeted screening and general check-ups. A general check-up has a small effect, targeted screening a bigger one.",
+      "keywords": [
+        "medical check",
+        "health check",
+        "general check",
+        "screening",
+        "mammogra",
+        "blood test"
+      ]
+    },
+    "dentist": {
+      "label": "Regular dental check-ups",
+      "description": "1–2 dental visits a year, with scale and polish.",
+      "keywords": [
+        "dentist",
+        "dental",
+        "teeth cleaning",
+        "orthodont"
+      ]
+    },
+    "sunscreen": {
+      "label": "Sun protection, sunscreen",
+      "description": "Using sunscreen regularly and avoiding sunbeds.",
+      "keywords": [
+        "sunscreen",
+        "sun cream",
+        "suncream",
+        "sunblock",
+        "sun protection"
+      ]
+    },
+    "standing_desk": {
+      "label": "Less sitting, standing desk",
+      "description": "Interrupting long periods of sitting.",
+      "keywords": [
+        "standing desk",
+        "sit less",
+        "sitting less",
+        "less sitting",
+        "sit-stand desk",
+        "standing workstation"
+      ]
+    },
+    "quit_drugs": {
+      "label": "Quitting drugs",
+      "description": "Giving up illegal drugs.",
+      "keywords": [
+        "quit drugs",
+        "quitting drugs",
+        "stop using drugs",
+        "stop taking drugs",
+        "give up drugs",
+        "drug rehab"
+      ]
+    },
+    "cannabis_use": {
+      "label": "Regular cannabis use",
+      "description": "Smoking weed regularly. The legal risk differs a lot between regions.",
+      "keywords": [
+        "cannabis",
+        "marijuana",
+        "smoke weed",
+        "smoking weed",
+        "smoke a joint",
+        "edibles"
+      ]
+    },
+    "reduce_alcohol": {
+      "label": "Drinking less alcohol",
+      "description": "Less alcohol and alcohol-free days.",
+      "keywords": [
+        "less alcohol",
+        "cut down on alcohol",
+        "cut back on alcohol",
+        "alcohol-free day",
+        "fewer drinks",
+        "dry january"
+      ]
+    },
+    "blood_donation": {
+      "label": "Giving blood",
+      "description": "Donating blood or plasma regularly.",
+      "keywords": [
+        "give blood",
+        "giving blood",
+        "donate blood",
+        "blood donor",
+        "blood donation",
+        "donate plasma"
+      ]
+    },
+    "organ_donor": {
+      "label": "Organ or bone marrow donation",
+      "description": "Registering as a donor.",
+      "keywords": [
+        "organ donor",
+        "organ donation",
+        "bone marrow",
+        "stem cell donor",
+        "donor card"
+      ]
+    },
+    "helmet": {
+      "label": "Wearing a helmet",
+      "description": "A helmet for cycling or riding a scooter.",
+      "keywords": [
+        "helmet",
+        "protective gear"
+      ]
+    },
+    "seatbelt": {
+      "label": "Seat belt, child seat",
+      "description": "Always wearing a seat belt and using the right child seat.",
+      "keywords": [
+        "seat belt",
+        "seatbelt",
+        "child seat",
+        "car seat",
+        "booster seat",
+        "buckle up"
+      ]
+    },
+    "speeding": {
+      "label": "Speeding",
+      "description": "Driving over the speed limit regularly.",
+      "keywords": [
+        "speeding",
+        "drive fast",
+        "driving fast",
+        "over the speed limit",
+        "break the speed limit"
+      ]
+    },
+    "drunk_driving": {
+      "label": "Drink-driving",
+      "description": "Driving under the influence of alcohol or drugs.",
+      "keywords": [
+        "drink-driv",
+        "drink driv",
+        "drunk driv",
+        "driving drunk",
+        "drive drunk",
+        "under the influence"
+      ]
+    },
+    "phone_driving": {
+      "label": "Using the phone while driving",
+      "description": "Calling or texting while driving.",
+      "keywords": [
+        "phone while driving",
+        "text while driving",
+        "texting while driving",
+        "call while driving",
+        "calls while driving",
+        "phone at the wheel"
+      ]
+    },
+    "motorcycle": {
+      "label": "Riding or buying a motorbike",
+      "description": "Using a motorbike or moped every day.",
+      "keywords": [
+        "motorcycl",
+        "motorbike",
+        "moped",
+        "motor scooter",
+        "vespa"
+      ]
+    },
+    "first_aid": {
+      "label": "First aid course",
+      "description": "Learning first aid and CPR.",
+      "keywords": [
+        "first aid",
+        "first-aid",
+        "resuscitat",
+        "defibrillat"
+      ]
+    },
+    "contraception": {
+      "label": "Contraception, condoms",
+      "description": "Planned parenthood and preventing infections.",
+      "keywords": [
+        "contracept",
+        "condom",
+        "birth control",
+        "the pill"
+      ]
+    },
+    "cosmetic_surgery": {
+      "label": "Cosmetic procedure",
+      "description": "Plastic surgery or botox.",
+      "keywords": [
+        "plastic surgery",
+        "cosmetic surgery",
+        "cosmetic procedure",
+        "botox",
+        "breast implant",
+        "liposuction"
+      ]
+    },
+    "used_car": {
+      "label": "Buying a used car",
+      "description": "Buying a used combustion-engine car and driving it every day.",
+      "keywords": [
+        "used car",
+        "second-hand car",
+        "secondhand car",
+        "second hand car",
+        "pre-owned car"
+      ]
+    },
+    "sell_car": {
+      "label": "Selling the car, car-free life",
+      "description": "Living without your own car.",
+      "keywords": [
+        "sell my car",
+        "sell our car",
+        "selling my car",
+        "car-free",
+        "without a car",
+        "get rid of my car"
+      ]
+    },
+    "car_sharing": {
+      "label": "Car sharing",
+      "description": "Renting a car by the minute instead of owning one.",
+      "keywords": [
+        "car sharing",
+        "car-sharing",
+        "carsharing",
+        "car club",
+        "share now",
+        "zipcar"
+      ]
+    },
+    "carpool": {
+      "label": "Carpooling, shared rides",
+      "description": "Sharing trips with other people.",
+      "keywords": [
+        "carpool",
+        "car pool",
+        "car-pool",
+        "blablacar",
+        "share a ride",
+        "lift share"
+      ]
+    },
+    "e_scooter": {
+      "label": "Electric scooter",
+      "description": "Short trips by e-scooter.",
+      "keywords": [
+        "e-scooter",
+        "electric scooter",
+        "escooter",
+        "kick scooter"
+      ]
+    },
+    "ebike": {
+      "label": "Electric bike",
+      "description": "Getting around by e-bike every day.",
+      "keywords": [
+        "e-bike",
+        "ebike",
+        "electric bike",
+        "electric bicycle",
+        "pedelec"
+      ]
+    },
+    "walk_commute": {
+      "label": "Walking",
+      "description": "Regular walks, getting around on foot.",
+      "keywords": [
+        "walk to work",
+        "walking to work",
+        "on foot",
+        "go for a walk",
+        "walk more",
+        "steps a day"
+      ]
+    },
+    "driving_license": {
+      "label": "Getting a driving licence",
+      "description": "A licence to drive.",
+      "keywords": [
+        "driving licen",
+        "drivers licen",
+        "driving lesson",
+        "driving test",
+        "driving school",
+        "learn to drive"
+      ]
+    },
+    "flight_vacation": {
+      "label": "Travelling by plane",
+      "description": "A holiday or trip by plane.",
+      "keywords": [
+        "flight",
+        "fly to",
+        "flying to",
+        "by plane",
+        "by air",
+        "plane ticket"
+      ]
+    },
+    "train_travel": {
+      "label": "Travelling by train",
+      "description": "A holiday or long-distance trip by train.",
+      "keywords": [
+        "train journey",
+        "train trip",
+        "travel by train",
+        "night train",
+        "interrail",
+        "holiday by train"
+      ]
+    },
+    "car_trip": {
+      "label": "Road trip",
+      "description": "A holiday by car.",
+      "keywords": [
+        "road trip",
+        "roadtrip",
+        "holiday by car",
+        "vacation by car",
+        "travel by car",
+        "trip by car"
+      ]
+    },
+    "cruise": {
+      "label": "Ocean cruise",
+      "description": "A cruise at sea.",
+      "keywords": [
+        "cruise",
+        "ocean liner",
+        "sea voyage"
+      ]
+    },
+    "local_vacation": {
+      "label": "Holiday at home or nearby",
+      "description": "Relaxing close to home, without flying.",
+      "keywords": [
+        "staycation",
+        "holiday at home",
+        "holiday nearby",
+        "local holiday",
+        "domestic holiday",
+        "balaton"
+      ]
+    },
+    "long_travel": {
+      "label": "Long trip to distant places",
+      "description": "Travelling for months, backpacking.",
+      "keywords": [
+        "backpacking",
+        "travel the world",
+        "travel around the world",
+        "round-the-world",
+        "world trip",
+        "travel for months"
+      ]
+    },
+    "video_calls": {
+      "label": "Video calls instead of travel",
+      "description": "Replacing business trips with online meetings.",
+      "keywords": [
+        "video call",
+        "video conferenc",
+        "videoconferenc",
+        "online meeting",
+        "zoom",
+        "teams call"
+      ]
+    },
+    "hiking": {
+      "label": "Hiking, time in nature",
+      "description": "Regular hikes, time in forests and green spaces.",
+      "keywords": [
+        "hiking",
+        "hike",
+        "in nature",
+        "in the forest",
+        "in the woods",
+        "nordic walking"
+      ]
+    },
+    "camping": {
+      "label": "Camping",
+      "description": "Holidays in a tent or at a campsite.",
+      "keywords": [
+        "camping",
+        "campsite",
+        "camp site",
+        "campervan",
+        "camper van",
+        "motorhome"
+      ]
+    },
+    "take_job": {
+      "label": "Getting a job",
+      "description": "Taking a job after unemployment or time out of work.",
+      "keywords": [
+        "get a job",
+        "getting a job",
+        "find a job",
+        "find work",
+        "take a job",
+        "back to work"
+      ]
+    },
+    "quit_job": {
+      "label": "Resigning without a new job",
+      "description": "Leaving your job and being out of work for a while.",
+      "keywords": [
+        "quit my job",
+        "quitting my job",
+        "resign",
+        "hand in my notice",
+        "leave my job",
+        "leaving my job"
+      ]
+    },
+    "part_time": {
+      "label": "Part-time work",
+      "description": "Working reduced hours.",
+      "keywords": [
+        "part-time",
+        "part time",
+        "fewer hours",
+        "reduce my hours",
+        "shorter hours",
+        "half-time"
+      ]
+    },
+    "four_day_week": {
+      "label": "Four-day week",
+      "description": "Four working days a week with the same pay.",
+      "keywords": [
+        "four-day",
+        "four day week",
+        "4-day week",
+        "4 day week",
+        "32-hour week"
+      ]
+    },
+    "overtime": {
+      "label": "Lots of overtime, long hours",
+      "description": "Working more than 55 hours a week.",
+      "keywords": [
+        "overtime",
+        "long hours",
+        "longer hours",
+        "work more hours",
+        "60 hours a week",
+        "work weekends"
+      ]
+    },
+    "night_shift": {
+      "label": "Night shift",
+      "description": "Working nights regularly.",
+      "keywords": [
+        "night shift",
+        "nightshift",
+        "work nights",
+        "working nights",
+        "shift work",
+        "rotating shift"
+      ]
+    },
+    "side_hustle": {
+      "label": "Side job, second job",
+      "description": "A second source of income outside working hours.",
+      "keywords": [
+        "side hustle",
+        "side job",
+        "second job",
+        "extra income",
+        "side gig",
+        "side business"
+      ]
+    },
+    "gig_work": {
+      "label": "Platform work (courier, driver)",
+      "description": "Working through an app.",
+      "keywords": [
+        "gig work",
+        "gig economy",
+        "as a courier",
+        "delivery driver",
+        "uber driver",
+        "taxi driver"
+      ]
+    },
+    "ask_raise": {
+      "label": "Asking for a pay rise",
+      "description": "Negotiating your pay at your current job.",
+      "keywords": [
+        "ask for a raise",
+        "get a raise",
+        "pay rise",
+        "pay raise",
+        "salary increase",
+        "negotiate my salary"
+      ]
+    },
+    "career_change": {
+      "label": "Career change",
+      "description": "A new profession or field.",
+      "keywords": [
+        "career change",
+        "change career",
+        "changing career",
+        "switch career",
+        "new career",
+        "retrain"
+      ]
+    },
+    "become_manager": {
+      "label": "Management role",
+      "description": "A promotion, leading a team.",
+      "keywords": [
+        "promoted",
+        "promotion",
+        "become a manager",
+        "team lead",
+        "management role",
+        "leadership role"
+      ]
+    },
+    "join_union": {
+      "label": "Joining a trade union",
+      "description": "Becoming a member of a trade union.",
+      "keywords": [
+        "trade union",
+        "labour union",
+        "labor union",
+        "union member",
+        "join a union",
+        "join the union"
+      ]
+    },
+    "retire": {
+      "label": "Retiring",
+      "description": "Going into retirement, possibly early.",
+      "keywords": [
+        "retire early",
+        "retire next",
+        "retire at",
+        "retire in",
+        "retiring",
+        "early retirement"
+      ]
+    },
+    "work_later": {
+      "label": "Working past retirement age",
+      "description": "Working on alongside a pension or instead of one.",
+      "keywords": [
+        "work after retirement",
+        "work past retirement",
+        "work in retirement",
+        "working in retirement",
+        "delay my retirement",
+        "postpone my retirement"
+      ]
+    },
+    "sabbatical": {
+      "label": "Unpaid leave, sabbatical",
+      "description": "A longer break from work.",
+      "keywords": [
+        "sabbatical",
+        "gap year",
+        "unpaid leave",
+        "career break",
+        "time off work",
+        "year off"
+      ]
+    },
+    "ai_tools": {
+      "label": "Using AI tools",
+      "description": "For example using ChatGPT or Copilot for work or study.",
+      "keywords": [
+        "chatgpt",
+        "copilot",
+        "ai tool",
+        "ai assistant",
+        "artificial intelligence",
+        "generative ai"
+      ]
+    },
+    "undeclared_work": {
+      "label": "Undeclared work, tax evasion",
+      "description": "Working without registration, paying without an invoice.",
+      "keywords": [
+        "off the books",
+        "cash in hand",
+        "undeclared",
+        "tax evasion",
+        "evade tax",
+        "without an invoice"
+      ]
+    },
+    "mentoring": {
+      "label": "Mentoring, teaching",
+      "description": "Passing on knowledge, tutoring, mentoring programmes.",
+      "keywords": [
+        "mentor",
+        "tutoring",
+        "become a tutor",
+        "share my knowledge",
+        "pass on my knowledge",
+        "teach others"
+      ]
+    },
+    "study_abroad": {
+      "label": "Studying abroad (Erasmus)",
+      "description": "A semester or a full degree abroad.",
+      "keywords": [
+        "erasmus",
+        "study abroad",
+        "studying abroad",
+        "exchange student",
+        "exchange semester",
+        "university abroad"
+      ]
+    },
+    "language_learning": {
+      "label": "Learning a language",
+      "description": "Learning a foreign language.",
+      "keywords": [
+        "new language",
+        "foreign language",
+        "learn a language",
+        "language course",
+        "language lessons",
+        "duolingo"
+      ]
+    },
+    "instrument": {
+      "label": "Making music, learning an instrument, singing",
+      "description": "Learning an instrument, singing in a choir.",
+      "keywords": [
+        "guitar",
+        "piano",
+        "violin",
+        "instrument",
+        "choir",
+        "singing"
+      ]
+    },
+    "arts": {
+      "label": "Creating art, dancing",
+      "description": "Painting, drawing, writing, pottery, acting or dancing.",
+      "keywords": [
+        "art class",
+        "learn to paint",
+        "learn to draw",
+        "pottery",
+        "dance class",
+        "dancing"
+      ]
+    },
+    "reading": {
+      "label": "Reading regularly",
+      "description": "Reading books.",
+      "keywords": [
+        "read more",
+        "more reading",
+        "reading more",
+        "read books",
+        "read a book",
+        "library"
+      ]
+    },
+    "coding_bootcamp": {
+      "label": "Learning to code",
+      "description": "A bootcamp or learning programming on your own.",
+      "keywords": [
+        "learn to code",
+        "learning to code",
+        "coding",
+        "programming",
+        "python",
+        "become a developer"
+      ]
+    },
+    "dropout": {
+      "label": "Dropping out of school or university",
+      "description": "Leaving your studies unfinished.",
+      "keywords": [
+        "drop out",
+        "dropping out",
+        "dropout",
+        "quit university",
+        "quit college",
+        "quit school"
+      ]
+    },
+    "early_childhood_education": {
+      "label": "Nursery or kindergarten for the child",
+      "description": "Early education in an institution.",
+      "keywords": [
+        "kindergarten",
+        "nursery",
+        "daycare",
+        "day care",
+        "preschool",
+        "creche"
+      ]
+    },
+    "private_school": {
+      "label": "Private school for the child",
+      "description": "A fee-paying or alternative school.",
+      "keywords": [
+        "private school",
+        "international school",
+        "montessori",
+        "waldorf",
+        "boarding school",
+        "fee-paying school"
+      ]
+    },
+    "homeschool": {
+      "label": "Homeschooling",
+      "description": "Home education instead of attending school.",
+      "keywords": [
+        "homeschool",
+        "home school",
+        "home-school",
+        "home educat",
+        "unschool"
+      ]
+    },
+    "index_funds": {
+      "label": "Index funds, long-term ETFs",
+      "description": "Investing in broad market index trackers.",
+      "keywords": [
+        "index fund",
+        "index tracker",
+        "an etf",
+        "etfs",
+        "s&p 500",
+        "msci world"
+      ]
+    },
+    "stock_picking": {
+      "label": "Individual stocks, trading",
+      "description": "Actively trading individual shares.",
+      "keywords": [
+        "stocks",
+        "individual shares",
+        "buy shares",
+        "stock market",
+        "day trading",
+        "stock picking"
+      ]
+    },
+    "crypto": {
+      "label": "Cryptocurrency",
+      "description": "Buying Bitcoin and other crypto assets.",
+      "keywords": [
+        "crypto",
+        "bitcoin",
+        "ethereum",
+        "altcoin",
+        "dogecoin",
+        "blockchain"
+      ]
+    },
+    "real_estate_invest": {
+      "label": "Buy-to-let property",
+      "description": "Buying a flat to rent it out.",
+      "keywords": [
+        "buy-to-let",
+        "buy to let",
+        "rent out",
+        "rent it out",
+        "rental property",
+        "become a landlord"
+      ]
+    },
+    "gold": {
+      "label": "Gold, precious metals",
+      "description": "Investment gold.",
+      "keywords": [
+        "buy gold",
+        "invest in gold",
+        "gold bar",
+        "gold coin",
+        "bullion",
+        "precious metal"
+      ]
+    },
+    "pension_saving": {
+      "label": "Saving for retirement",
+      "description": "Voluntary pension fund, private pension plan or pension insurance.",
+      "keywords": [
+        "pension fund",
+        "private pension",
+        "pension plan",
+        "retirement savings",
+        "save for retirement",
+        "saving for retirement"
+      ]
+    },
+    "emergency_fund": {
+      "label": "Emergency fund",
+      "description": "3–6 months of expenses put aside.",
+      "keywords": [
+        "emergency fund",
+        "rainy day fund",
+        "rainy-day fund",
+        "safety cushion",
+        "financial cushion",
+        "months of expenses"
+      ]
+    },
+    "budgeting": {
+      "label": "Household budget",
+      "description": "Planning and tracking spending.",
+      "keywords": [
+        "budgeting",
+        "household budget",
+        "monthly budget",
+        "keep a budget",
+        "make a budget",
+        "track my spending"
+      ]
+    },
+    "pay_off_debt": {
+      "label": "Paying off debt early",
+      "description": "Settling loans and debts early.",
+      "keywords": [
+        "pay off",
+        "paying off",
+        "debt-free",
+        "debt free",
+        "repay my",
+        "clear my debt"
+      ]
+    },
+    "gambling": {
+      "label": "Gambling, sports betting",
+      "description": "Regular betting or casino games.",
+      "keywords": [
+        "gambl",
+        "betting",
+        "casino",
+        "poker",
+        "place bets",
+        "slot machine"
+      ]
+    },
+    "lottery": {
+      "label": "Playing the lottery",
+      "description": "Regular lottery or scratch cards.",
+      "keywords": [
+        "lottery",
+        "lotto",
+        "scratch card",
+        "scratchcard",
+        "eurojackpot",
+        "powerball"
+      ]
+    },
+    "life_insurance": {
+      "label": "Life, health or accident insurance",
+      "description": "Taking out personal insurance.",
+      "keywords": [
+        "life insurance",
+        "health insurance",
+        "accident insurance",
+        "private health",
+        "critical illness cover",
+        "disability insurance"
+      ]
+    },
+    "lend_money": {
+      "label": "Lending money, guaranteeing a loan",
+      "description": "A loan to someone you know, or acting as guarantor for a loan.",
+      "keywords": [
+        "lend money",
+        "lend him",
+        "lend her",
+        "lend my",
+        "guarantor",
+        "co-sign"
+      ]
+    },
+    "donate_money": {
+      "label": "Donating money to charity",
+      "description": "A regular or one-off donation.",
+      "keywords": [
+        "donate money",
+        "donate to",
+        "donation to",
+        "to charity",
+        "fundraiser",
+        "patreon"
+      ]
+    },
+    "claim_benefits": {
+      "label": "Claiming welfare benefits",
+      "description": "Using unemployment benefit, welfare or family support.",
+      "keywords": [
+        "claim benefits",
+        "apply for benefits",
+        "on benefits",
+        "unemployment benefit",
+        "child benefit",
+        "jobseeker"
+      ]
+    },
+    "will": {
+      "label": "Writing a will",
+      "description": "Arranging your estate in advance.",
+      "keywords": [
+        "make a will",
+        "write a will",
+        "draw up a will",
+        "last will",
+        "testament",
+        "estate plan"
+      ]
+    },
+    "prenup": {
+      "label": "Prenuptial agreement",
+      "description": "A property agreement before marriage.",
+      "keywords": [
+        "prenup",
+        "pre-nup",
+        "marriage contract",
+        "marital agreement",
+        "marriage agreement"
+      ]
+    },
+    "marriage": {
+      "label": "Getting married",
+      "description": "Marriage, a wedding.",
+      "keywords": [
+        "get married",
+        "getting married",
+        "marry",
+        "wedding",
+        "propose to",
+        "get engaged"
+      ]
+    },
+    "move_in_together": {
+      "label": "Moving in with my partner",
+      "description": "A shared household.",
+      "keywords": [
+        "move in together",
+        "moving in together",
+        "move in with my partner",
+        "move in with my girlfriend",
+        "move in with my boyfriend",
+        "live together"
+      ]
+    },
+    "divorce": {
+      "label": "Divorce, breaking up",
+      "description": "The end of a relationship or marriage.",
+      "keywords": [
+        "divorce",
+        "break up",
+        "breaking up",
+        "split up",
+        "separate from",
+        "end my marriage"
+      ]
+    },
+    "couples_therapy": {
+      "label": "Couples therapy",
+      "description": "Therapy together to improve the relationship.",
+      "keywords": [
+        "couples therapy",
+        "couple therapy",
+        "couples counsel",
+        "marriage counsel",
+        "relationship counsel"
+      ]
+    },
+    "dating": {
+      "label": "Dating",
+      "description": "Dating apps, meeting new people.",
+      "keywords": [
+        "dating",
+        "tinder",
+        "bumble",
+        "go on dates",
+        "find a partner",
+        "new relationship"
+      ]
+    },
+    "adopt_child": {
+      "label": "Adopting or fostering a child",
+      "description": "Adoption or becoming a foster parent.",
+      "keywords": [
+        "adopt a child",
+        "adopting a child",
+        "adopt a baby",
+        "foster parent",
+        "foster a child",
+        "fostering"
+      ]
+    },
+    "parental_leave": {
+      "label": "Parental leave (fathers too)",
+      "description": "Staying at home with the child, paternity leave.",
+      "keywords": [
+        "parental leave",
+        "paternity leave",
+        "maternity leave",
+        "stay home with the baby",
+        "stay at home with the baby",
+        "stay home with our"
+      ]
+    },
+    "breastfeeding": {
+      "label": "Breastfeeding",
+      "description": "Breastfeeding a baby.",
+      "keywords": [
+        "breastfeed",
+        "breast-feed",
+        "breast milk",
+        "nursing the baby"
+      ]
+    },
+    "kids_screen_limit": {
+      "label": "Limiting children's screen time",
+      "description": "Less tablet, phone and TV time for the child.",
+      "keywords": [
+        "limit my kids",
+        "limit my children",
+        "kids less screen time",
+        "children less screen time",
+        "screen time for the kids",
+        "screen time for my kid"
+      ]
+    },
+    "elder_care_home": {
+      "label": "Caring for an elderly relative at home",
+      "description": "Looking after a parent or grandparent at home.",
+      "keywords": [
+        "care for my mother",
+        "care for my father",
+        "elderly parent",
+        "my elderly mother",
+        "my elderly father",
+        "moves in with us"
+      ]
+    },
+    "nursing_home": {
+      "label": "Elderly relative into a care home",
+      "description": "Care in an institution.",
+      "keywords": [
+        "nursing home",
+        "care home",
+        "retirement home",
+        "assisted living",
+        "old-age home",
+        "home for the elderly"
+      ]
+    },
+    "family_time": {
+      "label": "More time with family and friends",
+      "description": "Regular meetings and doing things together.",
+      "keywords": [
+        "time with my",
+        "time with family",
+        "time with friends",
+        "time with the kids",
+        "visit my parents",
+        "call my parents"
+      ]
+    },
+    "join_club": {
+      "label": "Joining a club or community",
+      "description": "An association, a club or a regular community activity.",
+      "keywords": [
+        "join a club",
+        "joining a club",
+        "book club",
+        "sports club",
+        "board game",
+        "join a community"
+      ]
+    },
+    "religious_community": {
+      "label": "Religious community",
+      "description": "Going to church or a congregation regularly.",
+      "keywords": [
+        "church",
+        "congregation",
+        "synagogue",
+        "mosque",
+        "temple",
+        "pray"
+      ]
+    },
+    "neighborhood": {
+      "label": "Neighbourhood community",
+      "description": "Residents' community, community garden, organising a street party.",
+      "keywords": [
+        "neighbour",
+        "neighbor",
+        "community garden",
+        "street party",
+        "block party",
+        "residents association"
+      ]
+    },
+    "dog": {
+      "label": "Keeping a dog",
+      "description": "A dog in the family.",
+      "keywords": [
+        "a dog",
+        "dog owner",
+        "puppy",
+        "puppies",
+        "my dog",
+        "our dog"
+      ]
+    },
+    "cat": {
+      "label": "Keeping a cat",
+      "description": "A cat in the family.",
+      "keywords": [
+        "get a cat",
+        "adopt a cat",
+        "cats",
+        "kitten",
+        "my cat",
+        "our cat"
+      ]
+    },
+    "shelter_pet": {
+      "label": "Adopting a pet from a shelter",
+      "description": "Taking in a shelter animal instead of buying one.",
+      "keywords": [
+        "animal shelter",
+        "from a shelter",
+        "rescue dog",
+        "adopt a dog",
+        "adopt a cat",
+        "adopt a pet"
+      ]
+    },
+    "pet_breeder": {
+      "label": "Pedigree pet from a breeder",
+      "description": "Buying from a breeder.",
+      "keywords": [
+        "breeder",
+        "pedigree",
+        "purebred",
+        "pure-bred"
+      ]
+    },
+    "small_pet": {
+      "label": "Small pet (fish, bird, rodent)",
+      "description": "An aquarium, a parrot, a hamster or a rabbit.",
+      "keywords": [
+        "hamster",
+        "guinea pig",
+        "parrot",
+        "aquarium",
+        "budgie",
+        "rabbit"
+      ]
+    },
+    "quit_social_media": {
+      "label": "Leaving or cutting down on social media",
+      "description": "Deleting or limiting Facebook, Instagram or TikTok.",
+      "keywords": [
+        "quit social media",
+        "quit facebook",
+        "less social media",
+        "less time on social media",
+        "delete my instagram",
+        "digital detox"
+      ]
+    },
+    "social_media_heavy": {
+      "label": "Heavy social media use",
+      "description": "Scrolling for hours every day.",
+      "keywords": [
+        "doomscroll",
+        "hours on tiktok",
+        "hours on instagram",
+        "hours on social media",
+        "day on tiktok",
+        "more time on social media"
+      ]
+    },
+    "screen_time_reduce": {
+      "label": "Less screen time",
+      "description": "Less phone, TV and series.",
+      "keywords": [
+        "screen time",
+        "less time on my phone",
+        "less phone",
+        "less tv",
+        "less netflix",
+        "phone-free"
+      ]
+    },
+    "password_security": {
+      "label": "Password manager, two-factor login",
+      "description": "Protecting your accounts.",
+      "keywords": [
+        "password manager",
+        "two-factor",
+        "2-factor",
+        "two-step",
+        "strong password",
+        "passkey"
+      ]
+    },
+    "privacy_settings": {
+      "label": "Privacy, less data sharing",
+      "description": "Privacy settings, VPN, less tracking.",
+      "keywords": [
+        "privacy",
+        "use a vpn",
+        "ad blocker",
+        "adblock",
+        "data protection",
+        "personal data"
+      ]
+    },
+    "video_games": {
+      "label": "Playing video games",
+      "description": "Gaming regularly on a computer or console.",
+      "keywords": [
+        "video game",
+        "gaming",
+        "computer games",
+        "online games",
+        "gamer",
+        "fortnite"
+      ]
+    },
+    "news_diet": {
+      "label": "Less news",
+      "description": "Filtering the news, taking a break from news.",
+      "keywords": [
+        "less news",
+        "news diet",
+        "news detox",
+        "news fast",
+        "stop reading the news",
+        "stop watching the news"
+      ]
+    },
+    "content_creation": {
+      "label": "Content creation (YouTube, blog, podcast)",
+      "description": "Making public online content.",
+      "keywords": [
+        "youtube channel",
+        "youtuber",
+        "blog",
+        "start a podcast",
+        "vlog",
+        "content creat"
+      ]
+    },
+    "voting": {
+      "label": "Voting",
+      "description": "Taking part in elections and referendums.",
+      "keywords": [
+        "vote",
+        "voting",
+        "referendum",
+        "ballot",
+        "polling station",
+        "go to the polls"
+      ]
+    },
+    "activism": {
+      "label": "Activism, protests, petitions",
+      "description": "Civic action for a cause.",
+      "keywords": [
+        "protest",
+        "petition",
+        "activis",
+        "demonstration",
+        "campaign for",
+        "march for"
+      ]
+    },
+    "run_for_office": {
+      "label": "Political involvement",
+      "description": "Joining a party or standing as a candidate.",
+      "keywords": [
+        "run for office",
+        "run for mayor",
+        "run for council",
+        "stand for election",
+        "political party",
+        "become a politician"
+      ]
+    },
+    "report_crime": {
+      "label": "Reporting abuse or a crime",
+      "description": "Making a police report or blowing the whistle.",
+      "keywords": [
+        "to the police",
+        "report a crime",
+        "report the crime",
+        "whistleblow",
+        "file a complaint",
+        "press charges"
+      ]
+    },
+    "lawsuit": {
+      "label": "Going to court",
+      "description": "Starting a lawsuit.",
+      "keywords": [
+        "lawsuit",
+        "sue my",
+        "sue the",
+        "to court",
+        "legal action",
+        "litigat"
+      ]
+    },
+    "mediation": {
+      "label": "Mediation, settling out of court",
+      "description": "Resolving a dispute by agreement.",
+      "keywords": [
+        "mediation",
+        "mediator",
+        "out of court",
+        "out-of-court",
+        "settle the dispute",
+        "come to an agreement"
+      ]
+    },
+    "military": {
+      "label": "Military service, reservist",
+      "description": "The armed forces or voluntary reserve service.",
+      "keywords": [
+        "military",
+        "army",
+        "armed forces",
+        "reservist",
+        "join the navy",
+        "soldier"
+      ]
+    },
+    "cultural_events": {
+      "label": "Cultural events",
+      "description": "Theatre, concerts, museums and cinema.",
+      "keywords": [
+        "theatre",
+        "theater",
+        "concert",
+        "museum",
+        "cinema",
+        "exhibition"
+      ]
+    },
+    "team_sport": {
+      "label": "Team sport",
+      "description": "Amateur football, basketball or volleyball in a team.",
+      "keywords": [
+        "play football",
+        "playing football",
+        "soccer",
+        "basketball",
+        "volleyball",
+        "team sport"
+      ]
+    },
+    "extreme_sport": {
+      "label": "Risky sport",
+      "description": "Skydiving, climbing, diving or skiing.",
+      "keywords": [
+        "skydiv",
+        "rock climbing",
+        "bouldering",
+        "scuba",
+        "skiing",
+        "paraglid"
+      ]
+    },
+    "fishing_hunting": {
+      "label": "Fishing, hunting",
+      "description": "Going fishing or hunting regularly.",
+      "keywords": [
+        "fishing",
+        "angling",
+        "go hunting",
+        "hunting season",
+        "hunting licen"
+      ]
+    },
+    "diy": {
+      "label": "DIY, doing home jobs myself",
+      "description": "Repairing, painting and fixing things with your own hands.",
+      "keywords": [
+        "do it myself",
+        "do-it-yourself",
+        "do it yourself",
+        "diy project",
+        "myself instead of hiring"
+      ]
+    },
+    "new_hobby": {
+      "label": "New hobby",
+      "description": "A regular leisure activity.",
+      "keywords": [
+        "hobby",
+        "hobbies",
+        "pastime"
+      ]
+    },
+    "nightlife": {
+      "label": "Partying, nightlife",
+      "description": "Going to clubs and parties regularly.",
+      "keywords": [
+        "partying",
+        "clubbing",
+        "nightclub",
+        "nightlife",
+        "go out at night",
+        "go to parties"
+      ]
+    },
+    "gen_buy": {
+      "label": "Buying (general)",
+      "description": "Buying an unknown product. An estimated, average consumption impact."
+    },
+    "gen_sell": {
+      "label": "Selling (general)",
+      "description": "Selling something."
+    },
+    "gen_move": {
+      "label": "Moving home (general)",
+      "description": "Changing where you live, destination unknown."
+    },
+    "gen_learn": {
+      "label": "Learning (general)",
+      "description": "Gaining new knowledge or skills."
+    },
+    "gen_start": {
+      "label": "Starting something new",
+      "description": "A new regular activity."
+    },
+    "gen_stop": {
+      "label": "Stopping an activity",
+      "description": "Giving something up."
+    },
+    "gen_travel": {
+      "label": "Travel (general)",
+      "description": "Travelling, mode of transport unknown."
+    },
+    "gen_help": {
+      "label": "Helping others",
+      "description": "Support and help for other people."
+    },
+    "gen_build": {
+      "label": "Building (general)",
+      "description": "Building or converting something."
+    },
+    "gen_rent": {
+      "label": "Renting (general)",
+      "description": "Renting something instead of buying it."
+    },
+    "gen_change": {
+      "label": "Replacing, switching (general)",
+      "description": "Replacing something with something else."
+    },
+    "gen_join": {
+      "label": "Joining (general)",
+      "description": "Joining a group or an organisation."
+    },
+    "gen_service": {
+      "label": "Using a service or professional",
+      "description": "Paying someone else to do the work."
+    },
+    "gen_less": {
+      "label": "Doing less (general)",
+      "description": "Reducing something. The direction is uncertain."
+    },
+    "gen_more": {
+      "label": "Doing more (general)",
+      "description": "Increasing something. The direction is uncertain."
+    },
+    "gen_invest_self": {
+      "label": "Health, lifestyle (general)",
+      "description": "A general intention to live more healthily."
+    },
+    "gym_membership": {
+      "label": "Gym membership",
+      "description": "A monthly or yearly gym pass.",
+      "keywords": [
+        "fitness club",
+        "health club",
+        "gym card",
+        "gym contract",
+        "sign up for a gym",
+        "sign up at a gym"
+      ]
+    },
+    "sports_gear": {
+      "label": "Buying sports gear",
+      "description": "Buying trainers, sportswear or training equipment.",
+      "keywords": [
+        "running shoes",
+        "trainers",
+        "sportswear",
+        "sports gear",
+        "workout gear",
+        "dumbbell"
+      ]
+    },
+    "injury_return": {
+      "label": "Training after an injury",
+      "description": "Starting to exercise again after an injury. The risk of a new injury goes up.",
+      "keywords": [
+        "torn ligament",
+        "broken leg",
+        "back to training",
+        "after surgery",
+        "strained muscle",
+        "pulled muscle"
+      ]
+    },
+    "medical_guidance": {
+      "label": "Check-ups with a doctor or physio",
+      "description": "A professional says how much exercise is safe.",
+      "keywords": [
+        "physician",
+        "sports medicine",
+        "medical advice",
+        "my gp",
+        "orthopaed",
+        "orthoped"
+      ]
+    }
+  },
+  "groups": {
+    "Egészség": "Health",
+    "Munka": "Work",
+    "Pénzügy": "Finance",
+    "Általános": "General",
+    "Közlekedés": "Transport",
+    "Fogyasztás": "Consumption",
+    "Étkezés": "Food",
+    "Szabadidő": "Leisure",
+    "Lakhatás": "Housing",
+    "Család": "Family",
+    "Otthon": "Home",
+    "Digitális": "Digital",
+    "Energia": "Energy",
+    "Kapcsolatok": "Relationships",
+    "Közélet": "Civic life",
+    "Tanulás": "Learning",
+    "Biztonság": "Safety",
+    "Utazás": "Travel",
+    "Hulladék": "Waste",
+    "Jog": "Legal",
+    "Háziállat": "Pets",
+    "Életmód": "Lifestyle",
+    "Mentális egészség": "Mental health"
+  },
+  "sourceTypes": {
+    "jelentés": "Report",
+    "metaanalízis": "Meta-analysis",
+    "áttekintés": "Review",
+    "statisztika": "Statistics",
+    "irányelv": "Guideline",
+    "megfigyeléses vizsgálat": "Observational study",
+    "RCT": "RCT",
+    "vizsgálat": "Study",
+    "szisztematikus áttekintés": "Systematic review",
+    "szisztematikus értékelés": "Systematic assessment",
+    "elemzés": "Analysis",
+    "kohorszvizsgálat": "Cohort study",
+    "tájékoztató": "Fact sheet",
+    "kvázikísérlet": "Quasi-experiment",
+    "definíció": "Definition",
+    "feltevés": "Assumption",
+    "szisztematikus elemzés": "Systematic analysis",
+    "elmélet": "Theory",
+    "adatbázis": "Database",
+    "kísérleti program": "Pilot programme",
+    "felmérés": "Survey",
+    "stratégia": "Strategy",
+    "ernyő-áttekintés": "Umbrella review",
+    "kísérlet": "Experiment",
+    "bizottsági jelentés": "Commission report",
+    "hatósági figyelmeztetés": "Regulatory warning",
+    "hálózati metaanalízis": "Network meta-analysis",
+    "módszertan": "Methodology"
+  },
+  "examples": {
+    "car": {
+      "title": "Buying a car",
+      "text": "I'm buying a car."
+    },
+    "water": {
+      "title": "Water filter",
+      "text": "I'm buying a Brita water filter for my kitchen tap."
+    },
+    "smoke": {
+      "title": "Quitting smoking",
+      "text": "I'm quitting smoking."
+    },
+    "bike": {
+      "title": "Cycling to work",
+      "text": "I cycle to work."
+    },
+    "ev_remote": {
+      "title": "Electric car + remote work",
+      "text": "I'm buying an electric car, and I'll work from home."
+    },
+    "degree_loan": {
+      "title": "A degree on credit",
+      "text": "I'm getting a university degree, and I'll pay for it with a personal loan."
+    },
+    "business": {
+      "title": "Own business",
+      "text": "I'm starting my own business. I'll put solar panels on the roof of the workshop."
+    },
+    "abroad": {
+      "title": "Working abroad",
+      "text": "I'm moving abroad to work, and my family is staying at home."
+    },
+    "family": {
+      "title": "Family and home",
+      "text": "We're having a child, and we're taking out a mortgage on a house."
+    },
+    "lifestyle": {
+      "title": "Lifestyle change",
+      "text": "I'm switching to a plant-based diet. I'll exercise every day. I'm giving up alcohol."
+    },
+    "everyday": {
+      "title": "Small everyday things",
+      "text": "I'll spend less time on my phone and more time with my family. At the weekend we'll go hiking in the forest. I'm starting to compost, and I'll throw away less food."
+    },
+    "rural": {
+      "title": "Country life (long)",
+      "text": "I'm leaving Budapest and moving to a small town in the countryside, because I'm tired of the noise and the expensive housing. I'm keeping my job, and I'll go on working remotely. I'll regularly invest the money I save on housing. Every week I'll volunteer in the local community. I won't buy a car; I'll get around town by bike instead."
+    }
+  }
+}

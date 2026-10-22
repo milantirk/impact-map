@@ -1,0 +1,5 @@
+# Local-only Terraform files (the root .gitignore covers state, plans,
+# terraform.tfvars and *.auto.tfvars).
+backend.hcl
+*.auto.tfvars.json
+plan.txt

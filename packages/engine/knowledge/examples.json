@@ -1,0 +1,20 @@
+{
+  "examples": [
+    {"id": "car", "title": "Autóvásárlás", "text": "Autót veszek."},
+    {"id": "water", "title": "Vízszűrő", "text": "Veszek Brita vízszűrőt a konyhai csapomra."},
+    {"id": "smoke", "title": "Leszokás", "text": "Leszokom a dohányzásról."},
+    {"id": "bike", "title": "Bringával munkába", "text": "Biciklivel járok dolgozni."},
+    {"id": "ev_remote", "title": "Villanyautó + távmunka", "text": "Elektromos autót veszek, és otthonról dolgozom."},
+    {"id": "degree_loan", "title": "Diploma hitelből", "text": "Egyetemi diplomát szerzek, amit személyi hitelből finanszírozok."},
+    {"id": "business", "title": "Saját vállalkozás", "text": "Saját vállalkozást indítok. A műhely tetejére napelemet szerelek."},
+    {"id": "abroad", "title": "Külföldi munka", "text": "Külföldre költözöm dolgozni, a családom itthon marad."},
+    {"id": "family", "title": "Család és otthon", "text": "Gyereket vállalunk, és lakáshitelt veszünk fel egy házra."},
+    {"id": "lifestyle", "title": "Életmódváltás", "text": "Növényi alapú étrendre váltok. Minden nap sportolok. Leszokom az alkoholról."},
+    {"id": "everyday", "title": "Hétköznapi apróságok", "text": "Kevesebbet telefonozok, és több időt töltök a családommal. Hétvégén túrázunk az erdőben. Komposztálni kezdek, és kevesebb ételt dobok ki."},
+    {
+      "id": "rural",
+      "title": "Vidéki élet (hosszú)",
+      "text": "Elköltözöm Budapestről egy vidéki kisvárosba, mert elegem van a zajból és a drága lakhatásból. A munkahelyemen maradok, de továbbra is távmunkában dolgozom. A lakhatáson megspórolt pénzt rendszeresen befektetem. Hetente önkéntes munkát végzek a helyi közösségben. Autót nem veszek, inkább biciklivel járok a városban."
+    }
+  ]
+}

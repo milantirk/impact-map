@@ -1,0 +1,479 @@
+{
+  "_note": "patterns: ékezet nélküli, kisbetűs reguláris kifejezések. effects.w: [-1, 1], pozitív = javulás az adott alterületen. ev: A-D bizonyítéki szint. lag: short | mid | long.",
+  "factors": [
+    {
+      "id": "quit_smoking", "label": "Dohányzás abbahagyása", "group": "Egészség",
+      "description": "A napi dohányzás teljes elhagyása.",
+      "patterns": ["\\bleszok\\w*\\W+(\\w+\\W+){0,2}(dohany|cigi|cigaret)", "\\b(dohany|cigi|cigaret)\\w*\\W+(\\w+\\W+){0,2}(leszok|abbahagy|letesz)", "\\babbahagy\\w*\\W+(\\w+\\W+){0,2}(dohany|cigi)", "\\bnem dohanyzom", "\\bquit(ting)? smoking", "\\bstop(ping)? smoking"],
+      "excludes": ["reduce_smoking"],
+      "alternatives": ["reduce_smoking", "vape_switch"],
+      "effects": [
+        {"target": "health.physical", "w": 0.8, "ev": "A", "lag": "long", "src": ["doll_2004", "who_tobacco_2023"]},
+        {"target": "health.longevity", "w": 0.7, "ev": "A", "lag": "long", "src": ["doll_2004"]},
+        {"target": "health.mental", "w": 0.25, "ev": "A", "lag": "mid", "src": ["taylor_2014"]},
+        {"target": "fin.cashflow", "w": 0.35, "ev": "B", "lag": "short", "src": ["who_tobacco_2023"]},
+        {"target": "health.public", "w": 0.25, "ev": "B", "lag": "short", "src": ["surgeon_general_2006"]},
+        {"target": "health.system", "w": 0.3, "ev": "B", "lag": "long", "src": ["who_tobacco_2023"]},
+        {"target": "pub.tax", "w": -0.25, "ev": "B", "lag": "short", "src": ["who_tobacco_2023"]},
+        {"target": "econ.consumption", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "reduce_smoking", "label": "Dohányzás csökkentése", "group": "Egészség",
+      "description": "Kevesebb cigaretta, de nem teljes leszokás.",
+      "patterns": ["\\bkevesebb\\W+(\\w+\\W+){0,1}(cigi|cigaret|dohany)", "\\b(dohany|cigi|cigaret)\\w*\\W+(\\w+\\W+){0,2}csokkent", "\\bcsokkent\\w*\\W+(\\w+\\W+){0,2}(dohany|cigi|cigaret)", "\\bcut down (on )?smoking"],
+      "alternatives": ["quit_smoking", "vape_switch"],
+      "effects": [
+        {"target": "health.physical", "w": 0.3, "ev": "C", "lag": "long", "src": ["doll_2004"]},
+        {"target": "health.longevity", "w": 0.2, "ev": "C", "lag": "long", "src": ["doll_2004"]},
+        {"target": "fin.cashflow", "w": 0.2, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "health.public", "w": 0.1, "ev": "C", "lag": "short", "src": ["surgeon_general_2006"]},
+        {"target": "pub.tax", "w": -0.1, "ev": "B", "lag": "short", "src": ["who_tobacco_2023"]}
+      ]
+    },
+    {
+      "id": "vape_switch", "label": "Áttérés e-cigarettára", "group": "Egészség",
+      "description": "Hagyományos cigarettáról e-cigarettára vagy hevítéses termékre váltás.",
+      "patterns": ["\\be-?cig", "\\bvape", "\\bvapol", "\\bheviteses"],
+      "alternatives": ["quit_smoking", "reduce_smoking"],
+      "effects": [
+        {"target": "health.physical", "w": 0.35, "ev": "C", "lag": "long", "src": ["phe_2015"]},
+        {"target": "health.longevity", "w": 0.2, "ev": "D", "lag": "long", "src": ["phe_2015"]},
+        {"target": "fin.cashflow", "w": 0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "health.public", "w": 0.15, "ev": "C", "lag": "short", "src": ["phe_2015"]},
+        {"target": "legal.risk", "w": -0.05, "ev": "D", "lag": "short", "src": ["per_assumption"]},
+        {"target": "pub.tax", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "buy_car", "label": "Autóvásárlás (belső égésű)", "group": "Közlekedés",
+      "description": "Saját benzines vagy dízel autó vásárlása és napi használata.",
+      "patterns": ["\\bauto(t|m|mat)?\\W+(\\w+\\W+){0,2}(meg)?(vesz|vasarol)", "\\b(meg)?(vesz|vasarol)\\w*\\W+(\\w+\\W+){0,2}auto(t|m|mat)?\\b", "\\bautoval (jarok|jarni|kozlekedek|megyek)", "\\bbuy(ing)? a car"],
+      "alternatives": ["buy_ev", "public_transport", "cycle_commute"],
+      "effects": [
+        {"target": "fin.cashflow", "w": -0.5, "ev": "B", "lag": "short", "src": ["aaa_driving_costs"]},
+        {"target": "fin.wealth", "w": -0.3, "ev": "B", "lag": "mid", "src": ["aaa_driving_costs"]},
+        {"target": "life.time", "w": 0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.autonomy", "w": 0.4, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "env.climate", "w": -0.45, "ev": "A", "lag": "long", "src": ["ipcc_ar6_wg3"]},
+        {"target": "env.air", "w": -0.3, "ev": "A", "lag": "short", "src": ["who_aqg_2021", "eea_air_2023"]},
+        {"target": "health.physical", "w": -0.2, "ev": "B", "lag": "mid", "src": ["celis_2017"]},
+        {"target": "econ.consumption", "w": 0.2, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "pub.tax", "w": 0.2, "ev": "B", "lag": "short", "src": ["oecd_energy_tax_2019"]},
+        {"target": "pub.infrastructure", "w": -0.2, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "legal.risk", "w": -0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "legal.freedom", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "buy_ev", "label": "Elektromos autó vásárlása", "group": "Közlekedés",
+      "description": "Saját elektromos autó vásárlása és napi használata.",
+      "patterns": ["\\belektromos\\W+auto", "\\bvillanyauto", "\\be-?auto\\b", "\\belectric (car|vehicle)"],
+      "excludes": ["buy_car"],
+      "alternatives": ["buy_car", "public_transport", "cycle_commute"],
+      "effects": [
+        {"target": "fin.cashflow", "w": -0.35, "ev": "B", "lag": "short", "src": ["iea_gevo_2024"]},
+        {"target": "fin.wealth", "w": -0.35, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "life.time", "w": 0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.autonomy", "w": 0.35, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "env.climate", "w": -0.15, "ev": "A", "lag": "long", "src": ["icct_2021"]},
+        {"target": "env.air", "w": -0.08, "ev": "B", "lag": "short", "src": ["eea_air_2023"]},
+        {"target": "env.resources", "w": -0.2, "ev": "B", "lag": "long", "src": ["iea_gevo_2024"]},
+        {"target": "health.physical", "w": -0.2, "ev": "B", "lag": "mid", "src": ["celis_2017"]},
+        {"target": "econ.consumption", "w": 0.25, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "pub.tax", "w": 0.05, "ev": "C", "lag": "short", "src": ["oecd_energy_tax_2019"]},
+        {"target": "pub.infrastructure", "w": -0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "legal.risk", "w": -0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "legal.freedom", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "cycle_commute", "label": "Kerékpáros közlekedés", "group": "Közlekedés",
+      "description": "Napi közlekedés (pl. munkába járás) kerékpárral.",
+      "patterns": ["\\bbicikli", "\\bbringa", "\\bkerekpar", "\\bcycl", "\\bbike\\b"],
+      "alternatives": ["public_transport", "buy_car", "buy_ev"],
+      "effects": [
+        {"target": "health.physical", "w": 0.6, "ev": "A", "lag": "long", "src": ["celis_2017", "who_pa_2020"]},
+        {"target": "health.longevity", "w": 0.35, "ev": "A", "lag": "long", "src": ["celis_2017"]},
+        {"target": "health.mental", "w": 0.25, "ev": "B", "lag": "mid", "src": ["who_pa_2020"]},
+        {"target": "env.climate", "w": 0.2, "ev": "B", "lag": "long", "src": ["ipcc_ar6_wg3"]},
+        {"target": "env.air", "w": 0.15, "ev": "B", "lag": "short", "src": ["eea_air_2023"]},
+        {"target": "fin.cashflow", "w": 0.3, "ev": "B", "lag": "short", "src": ["aaa_driving_costs"]},
+        {"target": "life.time", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "health.system", "w": 0.2, "ev": "B", "lag": "long", "src": ["who_pa_2020"]},
+        {"target": "pub.infrastructure", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "legal.risk", "w": -0.05, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "public_transport", "label": "Tömegközlekedés", "group": "Közlekedés",
+      "description": "Napi közlekedés busszal, villamossal, metróval, vonattal.",
+      "patterns": ["\\btomegkozlekedes", "\\bbkv\\b", "\\bbusszal", "\\bvillamossal", "\\bmetro", "\\bvonattal", "\\b(havi|bkv|volan|mav|orszag)\\W*berlet", "\\bpublic transport"],
+      "alternatives": ["cycle_commute", "buy_car"],
+      "effects": [
+        {"target": "env.climate", "w": 0.2, "ev": "A", "lag": "long", "src": ["ipcc_ar6_wg3"]},
+        {"target": "env.air", "w": 0.1, "ev": "B", "lag": "short", "src": ["eea_air_2023"]},
+        {"target": "fin.cashflow", "w": 0.25, "ev": "B", "lag": "short", "src": ["aaa_driving_costs"]},
+        {"target": "life.time", "w": -0.2, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "health.physical", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "pub.infrastructure", "w": 0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "soc.community", "w": 0.05, "ev": "D", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "econ.local", "w": 0.05, "ev": "D", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "remote_work", "label": "Távmunka", "group": "Munka",
+      "description": "Teljes munkaidőben otthonról végzett munka.",
+      "patterns": ["\\btavmunka", "\\botthonrol\\W+(\\w+\\W+){0,1}dolgoz", "\\bhome ?office", "\\bremote work", "\\bwork(ing)? from home"],
+      "alternatives": ["hybrid_work", "office_work"],
+      "effects": [
+        {"target": "life.time", "w": 0.45, "ev": "B", "lag": "short", "src": ["bloom_2015"]},
+        {"target": "fin.cashflow", "w": 0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "env.climate", "w": 0.1, "ev": "B", "lag": "long", "src": ["iea_wfh_2020"]},
+        {"target": "env.air", "w": 0.1, "ev": "C", "lag": "short", "src": ["iea_wfh_2020"]},
+        {"target": "econ.productivity", "w": 0.1, "ev": "A", "lag": "mid", "src": ["bloom_2015"]},
+        {"target": "soc.community", "w": -0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "health.mental", "w": -0.05, "ev": "C", "lag": "mid", "src": ["who_mh_work_2022"]},
+        {"target": "life.autonomy", "w": 0.3, "ev": "B", "lag": "short", "src": ["bloom_2024"]},
+        {"target": "econ.local", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "pub.infrastructure", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "hybrid_work", "label": "Hibrid munkavégzés", "group": "Munka",
+      "description": "Heti néhány nap otthonról, a többi az irodában.",
+      "patterns": ["\\bhibrid", "\\bhybrid"],
+      "excludes": ["remote_work", "office_work"],
+      "alternatives": ["remote_work", "office_work"],
+      "effects": [
+        {"target": "life.time", "w": 0.25, "ev": "A", "lag": "short", "src": ["bloom_2024"]},
+        {"target": "life.autonomy", "w": 0.2, "ev": "A", "lag": "short", "src": ["bloom_2024"]},
+        {"target": "health.mental", "w": 0.1, "ev": "B", "lag": "mid", "src": ["bloom_2024"]},
+        {"target": "env.climate", "w": 0.05, "ev": "B", "lag": "long", "src": ["iea_wfh_2020"]},
+        {"target": "econ.productivity", "w": 0.05, "ev": "A", "lag": "mid", "src": ["bloom_2024"]},
+        {"target": "fin.cashflow", "w": 0.05, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "office_work", "label": "Irodai munka ingázással", "group": "Munka",
+      "description": "Napi bejárás a munkahelyre.",
+      "patterns": ["\\birodaba\\W+(\\w+\\W+){0,1}(jar|megy|bejar)", "\\bbejar\\w*\\W+(\\w+\\W+){0,1}irodaba", "\\bingaz"],
+      "alternatives": ["remote_work", "hybrid_work"],
+      "effects": [
+        {"target": "life.time", "w": -0.3, "ev": "B", "lag": "short", "src": ["bloom_2015"]},
+        {"target": "soc.community", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "health.mental", "w": 0.05, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "env.climate", "w": -0.1, "ev": "B", "lag": "long", "src": ["iea_wfh_2020"]},
+        {"target": "fin.cashflow", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "move_rural", "label": "Vidékre költözés", "group": "Lakhatás",
+      "description": "Nagyvárosból kisvárosba vagy faluba költözés.",
+      "patterns": ["koltoz\\w*\\W+(\\w+\\W+){0,4}(videk|falu|kisvaros|tanya)", "\\b(videkre|faluba|kisvarosba|tanyara)\\W+(\\w+\\W+){0,2}\\w*koltoz", "\\bvideken\\W+(\\w+\\W+){0,1}(elek|elunk|lakom|lakunk)", "\\b(tanyan|tanyara|falun|faluban)\\W+(\\w+\\W+){0,2}(el|lak|koltoz)", "\\bmove to the countryside"],
+      "alternatives": ["move_city", "move_abroad"],
+      "effects": [
+        {"target": "fin.cashflow", "w": 0.3, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "fin.wealth", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "fin.income", "w": -0.1, "ev": "B", "lag": "mid", "src": ["oecd_rural_2020"]},
+        {"target": "soc.relationships", "w": -0.2, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "soc.community", "w": 0.2, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "econ.local", "w": 0.25, "ev": "B", "lag": "mid", "src": ["oecd_rural_2020"]},
+        {"target": "health.mental", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "health.physical", "w": -0.05, "ev": "C", "lag": "long", "src": ["oecd_rural_2020"]},
+        {"target": "life.autonomy", "w": 0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "soc.mobility", "w": -0.15, "ev": "B", "lag": "long", "src": ["oecd_rural_2020"]}
+      ]
+    },
+    {
+      "id": "move_city", "label": "Nagyvárosba költözés", "group": "Lakhatás",
+      "description": "Kisebb településről nagyvárosba költözés.",
+      "patterns": ["koltoz\\w*\\W+(\\w+\\W+){0,3}(nagyvaros|budapestre|fovarosba|pestre)", "\\b(nagyvarosba|budapestre|fovarosba|pestre)\\W+(\\w+\\W+){0,2}\\w*koltoz", "\\bmove to the city"],
+      "alternatives": ["move_rural", "move_abroad"],
+      "effects": [
+        {"target": "fin.income", "w": 0.25, "ev": "B", "lag": "mid", "src": ["oecd_rural_2020"]},
+        {"target": "fin.cashflow", "w": -0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "soc.mobility", "w": 0.2, "ev": "B", "lag": "long", "src": ["oecd_rural_2020"]},
+        {"target": "life.skills", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "soc.community", "w": -0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "econ.productivity", "w": 0.1, "ev": "B", "lag": "mid", "src": ["oecd_rural_2020"]},
+        {"target": "health.mental", "w": -0.05, "ev": "C", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "move_abroad", "label": "Külföldi munkavállalás", "group": "Lakhatás",
+      "description": "Költözés egy másik országba munka miatt.",
+      "patterns": ["\\bkulfoldre\\W+(\\w+\\W+){0,2}\\w*(koltoz|dolgoz|telepul|megyek dolgozni)", "\\b\\w*(koltoz|dolgoz)\\w*\\W+(\\w+\\W+){0,2}kulfold", "\\bkulfoldon\\W+(\\w+\\W+){0,2}(dolgoz|elek|telepedek)", "\\bkivandorol", "\\bemigral", "\\bmove abroad"],
+      "alternatives": ["move_city", "move_rural"],
+      "effects": [
+        {"target": "fin.income", "w": 0.5, "ev": "B", "lag": "short", "src": ["oecd_migration_2023"]},
+        {"target": "soc.relationships", "w": -0.4, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "health.mental", "w": -0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "life.skills", "w": 0.3, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "soc.mobility", "w": 0.3, "ev": "B", "lag": "long", "src": ["oecd_migration_2023"]},
+        {"target": "pub.tax", "w": -0.2, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "econ.employment", "w": -0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "legal.freedom", "w": -0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "legal.risk", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "university_degree", "label": "Egyetemi diploma", "group": "Tanulás",
+      "description": "Felsőfokú végzettség megszerzése.",
+      "patterns": ["\\begyetem", "\\bdiplom", "\\bfoiskol", "\\bmesterkepzes", "\\bphd\\b", "\\bdoktori", "\\buniversity", "\\bdegree\\b"],
+      "alternatives": ["vocational_training", "online_learning"],
+      "effects": [
+        {"target": "fin.income", "w": 0.5, "ev": "A", "lag": "long", "src": ["oecd_eag_2023", "psacharopoulos_2018"]},
+        {"target": "fin.cashflow", "w": -0.25, "ev": "B", "lag": "short", "src": ["oecd_eag_2023"]},
+        {"target": "life.time", "w": -0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.skills", "w": 0.6, "ev": "A", "lag": "mid", "src": ["oecd_eag_2023"]},
+        {"target": "soc.mobility", "w": 0.35, "ev": "B", "lag": "long", "src": ["oecd_eag_2023"]},
+        {"target": "health.longevity", "w": 0.2, "ev": "B", "lag": "long", "src": ["cutler_2006"]},
+        {"target": "econ.productivity", "w": 0.15, "ev": "B", "lag": "long", "src": ["psacharopoulos_2018"]},
+        {"target": "pub.tax", "w": 0.15, "ev": "B", "lag": "long", "src": ["oecd_eag_2023"]}
+      ]
+    },
+    {
+      "id": "vocational_training", "label": "Szakképzés", "group": "Tanulás",
+      "description": "Szakma megszerzése szakképzésben.",
+      "patterns": ["\\bszakkepz", "\\bszakma\\w*\\W+(\\w+\\W+){0,2}(tanul|szerez)", "\\bszakmunkas", "\\bvocational"],
+      "alternatives": ["university_degree", "online_learning"],
+      "effects": [
+        {"target": "fin.income", "w": 0.3, "ev": "B", "lag": "mid", "src": ["oecd_eag_2023"]},
+        {"target": "life.skills", "w": 0.4, "ev": "B", "lag": "mid", "src": ["oecd_eag_2023"]},
+        {"target": "econ.employment", "w": 0.15, "ev": "B", "lag": "mid", "src": ["oecd_eag_2023"]},
+        {"target": "fin.cashflow", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.time", "w": -0.2, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "soc.mobility", "w": 0.15, "ev": "C", "lag": "long", "src": ["oecd_eag_2023"]}
+      ]
+    },
+    {
+      "id": "online_learning", "label": "Online tanfolyam", "group": "Tanulás",
+      "description": "Rövid online kurzusok, önképzés.",
+      "patterns": ["\\bonline\\W+(\\w+\\W+){0,1}(kurzus|tanf|kepz|tanul)", "\\bmooc", "\\bonline course"],
+      "alternatives": ["university_degree", "vocational_training"],
+      "effects": [
+        {"target": "life.skills", "w": 0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "fin.income", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "life.time", "w": -0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "fin.cashflow", "w": -0.05, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "consumer_loan", "label": "Személyi / fogyasztási hitel", "group": "Pénzügy",
+      "description": "Fedezet nélküli hitel felvétele.",
+      "patterns": ["\\bszemelyi\\W+hitel", "\\bfogyasztasi\\W+hitel", "\\bhitelre\\W+(\\w+\\W+){0,2}(vesz|vasarol)", "\\bhitelkartya", "\\bhitelt\\W+(\\w+\\W+){0,1}(veszek|veszunk|felvesz)", "\\bkolcsont\\W+(\\w+\\W+){0,1}(veszek|felvesz)", "\\b(veszek|veszunk|felveszek)\\W+(\\w+\\W+){0,2}(hitelt|kolcsont)", "\\b(consumer|personal) loan"],
+      "alternatives": ["save_invest"],
+      "effects": [
+        {"target": "fin.cashflow", "w": -0.35, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "fin.security", "w": -0.4, "ev": "B", "lag": "mid", "src": ["richardson_2013"]},
+        {"target": "fin.wealth", "w": -0.2, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "legal.freedom", "w": -0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "legal.risk", "w": -0.2, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "health.mental", "w": -0.25, "ev": "A", "lag": "mid", "src": ["richardson_2013"]},
+        {"target": "econ.consumption", "w": 0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "mortgage", "label": "Lakáshitel, lakásvásárlás", "group": "Lakhatás",
+      "description": "Saját lakás vagy ház vásárlása jelzáloghitelből.",
+      "patterns": ["\\blakashitel", "\\bjelzalog", "\\bmortgage", "\\b(hazat|lakast)\\W+(\\w+\\W+){0,2}(meg)?(vesz|vasarol)", "\\b(meg)?(vesz|vasarol)\\w*\\W+(\\w+\\W+){0,2}(hazat|lakast)\\b"],
+      "excludes": ["consumer_loan"],
+      "alternatives": ["rent_home", "save_invest"],
+      "effects": [
+        {"target": "fin.wealth", "w": 0.3, "ev": "C", "lag": "long", "src": ["per_assumption"]},
+        {"target": "fin.cashflow", "w": -0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "fin.security", "w": -0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "legal.freedom", "w": -0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.autonomy", "w": 0.3, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "health.mental", "w": -0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "econ.consumption", "w": 0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "rent_home", "label": "Albérlet", "group": "Lakhatás",
+      "description": "Lakás bérlése vásárlás helyett.",
+      "patterns": ["\\balberlet", "\\bberel\\w*\\W+(\\w+\\W+){0,1}(lakast|hazat)", "\\brent(ing)? (a|an) (flat|apartment|house)"],
+      "alternatives": ["mortgage"],
+      "effects": [
+        {"target": "fin.cashflow", "w": -0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "fin.wealth", "w": -0.2, "ev": "C", "lag": "long", "src": ["per_assumption"]},
+        {"target": "legal.freedom", "w": 0.2, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.autonomy", "w": -0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "fin.security", "w": -0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "save_invest", "label": "Rendszeres megtakarítás, befektetés", "group": "Pénzügy",
+      "description": "Havonta félretett és befektetett összeg.",
+      "patterns": ["\\bmegtakarit", "\\bbefektet", "\\bsporol", "\\bfelretesz", "\\bnyugdijpenztar", "\\betf\\b", "\\binvest", "\\bsaving"],
+      "alternatives": [],
+      "effects": [
+        {"target": "fin.wealth", "w": 0.5, "ev": "C", "lag": "long", "src": ["per_assumption"]},
+        {"target": "fin.security", "w": 0.45, "ev": "B", "lag": "mid", "src": ["cfpb_2017"]},
+        {"target": "fin.cashflow", "w": -0.2, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "health.mental", "w": 0.15, "ev": "C", "lag": "mid", "src": ["cfpb_2017"]},
+        {"target": "econ.productivity", "w": 0.05, "ev": "D", "lag": "long", "src": ["per_assumption"]},
+        {"target": "econ.consumption", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "start_business", "label": "Vállalkozás indítása", "group": "Munka",
+      "description": "Saját cég alapítása, alkalmazottakkal vagy anélkül.",
+      "patterns": ["\\bvallalkozas\\w*\\W+(\\w+\\W+){0,2}(indit|alapit|kezd)", "\\b(indit|alapit|kezd)\\w*\\W+(\\w+\\W+){0,2}vallalkoz", "\\bceget\\W+(\\w+\\W+){0,1}alapit", "\\bstartup", "\\bsajat\\W+(uzlet|ceg|vallalkozas)", "\\bstart a business"],
+      "alternatives": ["freelance", "job_change"],
+      "effects": [
+        {"target": "fin.income", "w": 0.15, "ev": "C", "lag": "mid", "src": ["oecd_missing_ent_2023"]},
+        {"target": "fin.security", "w": -0.4, "ev": "B", "lag": "short", "src": ["oecd_missing_ent_2023"]},
+        {"target": "econ.employment", "w": 0.25, "ev": "B", "lag": "mid", "src": ["oecd_missing_ent_2023"]},
+        {"target": "econ.local", "w": 0.25, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "legal.risk", "w": -0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "legal.freedom", "w": -0.25, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.autonomy", "w": 0.45, "ev": "B", "lag": "short", "src": ["benz_frey_2008"]},
+        {"target": "life.time", "w": -0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "health.mental", "w": -0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "life.skills", "w": 0.3, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "pub.tax", "w": 0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "freelance", "label": "Szabadúszás", "group": "Munka",
+      "description": "Egyéni vállalkozóként, megbízásokból dolgozni.",
+      "patterns": ["\\bszabaduszo", "\\begyeni vallalkozo", "\\bfreelanc"],
+      "excludes": ["start_business"],
+      "alternatives": ["start_business", "job_change"],
+      "effects": [
+        {"target": "fin.income", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "fin.security", "w": -0.3, "ev": "C", "lag": "short", "src": ["oecd_missing_ent_2023"]},
+        {"target": "life.autonomy", "w": 0.4, "ev": "B", "lag": "short", "src": ["benz_frey_2008"]},
+        {"target": "legal.risk", "w": -0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "legal.freedom", "w": -0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.time", "w": 0.05, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "pub.tax", "w": 0.05, "ev": "C", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "job_change", "label": "Munkahelyváltás magasabb fizetésért", "group": "Munka",
+      "description": "Új munkahely jobb fizetéssel.",
+      "patterns": ["\\bmunkahely\\w*\\W+(\\w+\\W+){0,2}valt", "\\buj munkahely", "\\bvaltok\\W+(\\w+\\W+){0,1}munkahely", "\\bmagasabb fizetes", "\\bjobban fizeto", "\\bnew job"],
+      "excludes": ["quit_job"],
+      "alternatives": ["vocational_training", "freelance"],
+      "effects": [
+        {"target": "fin.income", "w": 0.35, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "health.mental", "w": 0.05, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "life.skills", "w": 0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "soc.relationships", "w": -0.05, "ev": "D", "lag": "short", "src": ["per_assumption"]},
+        {"target": "econ.productivity", "w": 0.05, "ev": "D", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "regular_exercise", "label": "Rendszeres testmozgás", "group": "Egészség",
+      "description": "Heti legalább 150 perc közepes intenzitású mozgás.",
+      "patterns": ["\\bsport", "\\bedz(ek|es|eni|ok)", "\\bedzo(hoz|vel|t|m)\\b", "\\bszemelyi edzo", "\\bfut(ok|ni|as|ni)\\b", "\\bmozog", "\\bmozg(ok|unk|ni)\\b", "\\bmozgas", "\\btestmozgas", "\\bkondi", "\\buszok\\b", "\\buszni\\b", "\\bexercis", "\\bgym\\b"],
+      "alternatives": ["cycle_commute"],
+      "effects": [
+        {"target": "health.physical", "w": 0.7, "ev": "A", "lag": "long", "src": ["who_pa_2020"]},
+        {"target": "health.mental", "w": 0.4, "ev": "A", "lag": "mid", "src": ["schuch_2016"]},
+        {"target": "health.longevity", "w": 0.45, "ev": "A", "lag": "long", "src": ["who_pa_2020"]},
+        {"target": "life.time", "w": -0.2, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "health.system", "w": 0.25, "ev": "B", "lag": "long", "src": ["who_pa_2020"]},
+        {"target": "fin.cashflow", "w": -0.05, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "plant_based", "label": "Növényi alapú étrend", "group": "Életmód",
+      "description": "Vegán vagy vegetáriánus étrend.",
+      "patterns": ["\\bvegan", "\\bvegetarian", "\\bnovenyi\\W+(alapu|etrend)", "\\bhusmentes", "\\bnem eszem\\W+(\\w+\\W+){0,1}hust", "\\bplant[- ]based"],
+      "excludes": ["reduce_meat"],
+      "alternatives": ["reduce_meat"],
+      "effects": [
+        {"target": "env.climate", "w": 0.35, "ev": "A", "lag": "long", "src": ["poore_2018"]},
+        {"target": "env.resources", "w": 0.35, "ev": "A", "lag": "long", "src": ["poore_2018"]},
+        {"target": "env.biodiversity", "w": 0.3, "ev": "B", "lag": "long", "src": ["poore_2018", "ipbes_2019"]},
+        {"target": "health.physical", "w": 0.25, "ev": "B", "lag": "long", "src": ["eat_lancet_2019"]},
+        {"target": "health.longevity", "w": 0.15, "ev": "B", "lag": "long", "src": ["eat_lancet_2019"]},
+        {"target": "fin.cashflow", "w": 0.05, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "soc.relationships", "w": -0.05, "ev": "D", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "reduce_meat", "label": "Húsfogyasztás csökkentése", "group": "Életmód",
+      "description": "Kevesebb hús, de nem teljes elhagyás.",
+      "patterns": ["\\bkevesebb\\W+(\\w+\\W+){0,1}hus", "\\bhus\\w*\\W+(\\w+\\W+){0,2}csokkent", "\\bcsokkent\\w*\\W+(\\w+\\W+){0,2}hus", "\\bflexitari", "\\breduce meat"],
+      "alternatives": ["plant_based"],
+      "effects": [
+        {"target": "env.climate", "w": 0.2, "ev": "A", "lag": "long", "src": ["poore_2018"]},
+        {"target": "env.resources", "w": 0.2, "ev": "A", "lag": "long", "src": ["poore_2018"]},
+        {"target": "env.biodiversity", "w": 0.15, "ev": "B", "lag": "long", "src": ["poore_2018"]},
+        {"target": "health.physical", "w": 0.15, "ev": "B", "lag": "long", "src": ["eat_lancet_2019"]},
+        {"target": "fin.cashflow", "w": 0.05, "ev": "C", "lag": "short", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "quit_alcohol", "label": "Alkohol elhagyása", "group": "Egészség",
+      "description": "Teljes absztinencia.",
+      "patterns": ["\\balkohol\\w*\\W+(\\w+\\W+){0,2}(abbahagy|leszok|elhagy)", "\\b(abbahagy|leszok|elhagy)\\w*\\W+(\\w+\\W+){0,2}(alkohol|ivas|pia)", "\\bnem iszom\\b", "\\bjozan", "\\bquit (drinking|alcohol)", "\\bsober"],
+      "excludes": ["reduce_alcohol"],
+      "alternatives": ["reduce_alcohol"],
+      "effects": [
+        {"target": "health.physical", "w": 0.45, "ev": "A", "lag": "long", "src": ["gbd_alcohol_2018"]},
+        {"target": "health.longevity", "w": 0.35, "ev": "A", "lag": "long", "src": ["gbd_alcohol_2018"]},
+        {"target": "health.mental", "w": 0.25, "ev": "B", "lag": "mid", "src": ["gbd_alcohol_2018"]},
+        {"target": "fin.cashflow", "w": 0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "legal.risk", "w": 0.2, "ev": "B", "lag": "short", "src": ["gbd_alcohol_2018"]},
+        {"target": "soc.relationships", "w": 0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "health.system", "w": 0.2, "ev": "B", "lag": "long", "src": ["gbd_alcohol_2018"]},
+        {"target": "pub.tax", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "legal.system", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "volunteering", "label": "Önkéntesség", "group": "Életmód",
+      "description": "Rendszeres önkéntes munka.",
+      "patterns": ["\\bonkent", "\\bvolunteer"],
+      "alternatives": [],
+      "effects": [
+        {"target": "soc.community", "w": 0.5, "ev": "B", "lag": "mid", "src": ["jenkinson_2013"]},
+        {"target": "health.mental", "w": 0.25, "ev": "B", "lag": "mid", "src": ["jenkinson_2013"]},
+        {"target": "health.longevity", "w": 0.15, "ev": "B", "lag": "long", "src": ["jenkinson_2013"]},
+        {"target": "life.time", "w": -0.3, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.skills", "w": 0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "pub.welfare", "w": 0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "soc.relationships", "w": 0.2, "ev": "C", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "have_child", "label": "Gyermekvállalás", "group": "Család",
+      "description": "Egy gyermek vállalása.",
+      "patterns": ["\\bgyerek\\w*\\W+(\\w+\\W+){0,2}(vallal|szul|lesz)", "\\bgyermek\\w*\\W+(\\w+\\W+){0,2}(vallal|szul|lesz)", "\\bgyermekvallal", "\\bbaba(t)?\\W+(\\w+\\W+){0,1}(vallal|var)", "\\bcsaladot alapit", "\\bhave a (baby|child)"],
+      "alternatives": [],
+      "effects": [
+        {"target": "fin.cashflow", "w": -0.45, "ev": "B", "lag": "mid", "src": ["oecd_family_db"]},
+        {"target": "life.time", "w": -0.45, "ev": "B", "lag": "short", "src": ["nomaguchi_milkie_2020"]},
+        {"target": "soc.relationships", "w": 0.3, "ev": "C", "lag": "mid", "src": ["nomaguchi_milkie_2020"]},
+        {"target": "health.mental", "w": 0.05, "ev": "C", "lag": "mid", "src": ["nomaguchi_milkie_2020"]},
+        {"target": "life.autonomy", "w": -0.3, "ev": "C", "lag": "short", "src": ["nomaguchi_milkie_2020"]},
+        {"target": "legal.freedom", "w": -0.15, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "pub.tax", "w": 0.25, "ev": "C", "lag": "long", "src": ["un_wpp_2022"]},
+        {"target": "pub.welfare", "w": -0.15, "ev": "C", "lag": "mid", "src": ["oecd_family_db"]},
+        {"target": "econ.employment", "w": 0.15, "ev": "C", "lag": "long", "src": ["un_wpp_2022"]},
+        {"target": "env.resources", "w": -0.25, "ev": "C", "lag": "long", "src": ["per_assumption"]}
+      ]
+    },
+    {
+      "id": "solar_panels", "label": "Napelem telepítése", "group": "Energia",
+      "description": "Háztartási napelemes rendszer.",
+      "patterns": ["\\bnapelem", "\\bnapkollektor", "\\bsolar"],
+      "alternatives": [],
+      "effects": [
+        {"target": "env.climate", "w": 0.35, "ev": "B", "lag": "long", "src": ["irena_2023"]},
+        {"target": "fin.cashflow", "w": 0.3, "ev": "B", "lag": "long", "src": ["irena_2023"]},
+        {"target": "fin.wealth", "w": -0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "fin.security", "w": 0.1, "ev": "C", "lag": "mid", "src": ["per_assumption"]},
+        {"target": "econ.local", "w": 0.1, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "legal.freedom", "w": -0.05, "ev": "C", "lag": "short", "src": ["per_assumption"]},
+        {"target": "life.autonomy", "w": 0.15, "ev": "C", "lag": "mid", "src": ["per_assumption"]}
+      ]
+    }
+  ]
+}

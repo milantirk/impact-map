@@ -1,0 +1,43 @@
+{
+  "name": "impact-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "See how one decision spreads to every area of life, regardless of distance.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "e2e"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c gray,blue \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev -w @impact-map/api",
+    "dev:web": "npm run dev -w @impact-map/web",
+    "build": "npm run build -w @impact-map/web && npm run build -w @impact-map/api",
+    "start": "npm run start -w @impact-map/api",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "e2e": "npm run test -w @impact-map/e2e",
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.2",
+    "@vitest/coverage-v8": "^5.0.5",
+    "concurrently": "^10.0.6",
+    "eslint": "^10.13.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.0",
+    "vitest": "^5.0.5"
+  }
+}

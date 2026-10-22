@@ -1,0 +1,6 @@
+# Copy to backend.hcl (gitignored) after the first apply.
+# Values: terraform output backend_hcl
+storage_account_name = "stimpactmaptfxxxxxx"
+container_name       = "tfstate"
+key                  = "bootstrap.tfstate"
+use_azuread_auth     = true

@@ -1,0 +1,25 @@
+# Copy to terraform.tfvars (gitignored) for local runs.
+# GitHub Actions does not read this file: it uses the variable defaults plus the
+# repository variable TFVARS_DEV (JSON) and ACR_NAME. Keep both in sync.
+
+# subscription_id = "00000000-0000-0000-0000-000000000000" # or export ARM_SUBSCRIPTION_ID
+acr_name = "crimpactmapxxxxxx" # bootstrap output acr_name
+
+# Sizing (these are the defaults for dev)
+app_service_sku                       = "B1"
+app_service_worker_count              = 1
+staging_slot_enabled                  = false
+frontdoor_sku                         = "Standard_AzureFrontDoor"
+waf_mode                              = "Detection"
+postgres_sku                          = "B_Standard_B1ms"
+postgres_backup_retention_days        = 7
+postgres_geo_redundant_backup_enabled = false
+postgres_high_availability_enabled    = false
+log_retention_in_days                 = 30
+log_daily_quota_gb                    = 1
+log_level                             = "debug"
+
+# Optional extras (null = off)
+# custom_domain = "dev.impact-map.example.com"
+# alert_email   = "you@example.com"
+# budget_amount = 50

@@ -1,0 +1,96 @@
+{
+  "areas": [
+    {
+      "id": "econ",
+      "label": "Gazdasági",
+      "description": "A tágabb gazdaságra (piac, munkaerő, kereslet) gyakorolt hatás.",
+      "children": [
+        {"id": "econ.employment", "label": "Foglalkoztatás", "scope": "society"},
+        {"id": "econ.local", "label": "Helyi gazdaság", "scope": "community"},
+        {"id": "econ.productivity", "label": "Termelékenység", "scope": "society"},
+        {"id": "econ.consumption", "label": "Kereslet, fogyasztás", "scope": "society"}
+      ]
+    },
+    {
+      "id": "fin",
+      "label": "Pénzügyi",
+      "description": "A döntéshozó saját pénzügyi helyzete.",
+      "children": [
+        {"id": "fin.income", "label": "Jövedelem", "scope": "individual"},
+        {"id": "fin.cashflow", "label": "Havi mozgástér", "scope": "individual"},
+        {"id": "fin.wealth", "label": "Vagyon, megtakarítás", "scope": "individual"},
+        {"id": "fin.security", "label": "Pénzügyi biztonság", "scope": "individual"}
+      ]
+    },
+    {
+      "id": "health",
+      "label": "Egészségügyi",
+      "description": "Egyéni és közegészség, valamint az ellátórendszer.",
+      "children": [
+        {"id": "health.physical", "label": "Testi egészség", "scope": "individual"},
+        {"id": "health.mental", "label": "Mentális egészség", "scope": "individual"},
+        {"id": "health.longevity", "label": "Várható élettartam", "scope": "individual"},
+        {"id": "health.public", "label": "Közegészség", "scope": "community"},
+        {"id": "health.safety", "label": "Balesetbiztonság", "scope": "individual"},
+        {"id": "health.system", "label": "Egészségügy tehermentesítése", "scope": "society"}
+      ]
+    },
+    {
+      "id": "soc",
+      "label": "Szociológiai",
+      "description": "Kapcsolatok, közösség, társadalmi szerkezet.",
+      "children": [
+        {"id": "soc.relationships", "label": "Kapcsolatok, család", "scope": "individual"},
+        {"id": "soc.community", "label": "Közösségi kötődés", "scope": "community"},
+        {"id": "soc.mobility", "label": "Társadalmi mobilitás", "scope": "society"},
+        {"id": "soc.equality", "label": "Egyenlőség", "scope": "society"},
+        {"id": "soc.civic", "label": "Közéleti részvétel, bizalom", "scope": "society"}
+      ]
+    },
+    {
+      "id": "legal",
+      "label": "Jogi",
+      "description": "Jogi kockázat, kötelezettségek, igazságszolgáltatás.",
+      "children": [
+        {"id": "legal.risk", "label": "Alacsony jogi kockázat", "scope": "individual"},
+        {"id": "legal.freedom", "label": "Kötöttségmentesség", "scope": "individual"},
+        {"id": "legal.system", "label": "Igazságszolgáltatás tehermentesítése", "scope": "society"},
+        {"id": "legal.privacy", "label": "Magánszféra, adatbiztonság", "scope": "individual"}
+      ]
+    },
+    {
+      "id": "env",
+      "label": "Környezeti",
+      "description": "Klíma, levegő, erőforrások, élővilág.",
+      "children": [
+        {"id": "env.climate", "label": "Klíma (CO₂)", "scope": "global"},
+        {"id": "env.air", "label": "Levegőminőség", "scope": "community"},
+        {"id": "env.resources", "label": "Erőforrás-takarékosság", "scope": "global"},
+        {"id": "env.biodiversity", "label": "Biodiverzitás", "scope": "global"},
+        {"id": "env.waste", "label": "Hulladékcsökkentés", "scope": "global"},
+        {"id": "env.water", "label": "Vízkészlet, vízminőség", "scope": "global"},
+        {"id": "env.animals", "label": "Állatjólét", "scope": "global"}
+      ]
+    },
+    {
+      "id": "life",
+      "label": "Életminőség",
+      "description": "Idő, tudás, önrendelkezés.",
+      "children": [
+        {"id": "life.time", "label": "Szabadidő", "scope": "individual"},
+        {"id": "life.skills", "label": "Tudás, készségek", "scope": "individual"},
+        {"id": "life.autonomy", "label": "Autonómia", "scope": "individual"}
+      ]
+    },
+    {
+      "id": "pub",
+      "label": "Közpénzügyi",
+      "description": "Állami bevételek és kiadások, közös infrastruktúra.",
+      "children": [
+        {"id": "pub.tax", "label": "Adóbevétel", "scope": "society"},
+        {"id": "pub.welfare", "label": "Jóléti kiadások tehermentesítése", "scope": "society"},
+        {"id": "pub.infrastructure", "label": "Infrastruktúra tehermentesítése", "scope": "community"}
+      ]
+    }
+  ]
+}

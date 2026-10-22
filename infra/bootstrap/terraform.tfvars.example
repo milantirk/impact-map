@@ -1,0 +1,12 @@
+# Copy to terraform.tfvars (gitignored) and fill in.
+
+# subscription_id = "00000000-0000-0000-0000-000000000000" # or export ARM_SUBSCRIPTION_ID
+location          = "westeurope"
+project           = "impactmap"
+github_owner      = "your-github-user-or-org"
+github_repository = "impact-map"
+environments      = ["dev", "prod"]
+acr_sku           = "Basic"
+
+# Extra users or groups (Entra object IDs) that may read/write Terraform state.
+state_admin_principal_ids = []
